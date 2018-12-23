@@ -140,7 +140,7 @@ const Navigation = () => (
             <FaInstagram />
           </a>
           <a
-            href="https://www.facebook.com/lizaveta.schaefer"
+            href="https://www.facebook.com/doulalizzyCY"
             target="_blank"
             rel="noopener noreferrer"
           >
