@@ -13,7 +13,7 @@ const Wrapper = styled.footer`
 
 const Footer = () => (
   <Wrapper>
-    Copyright &copy; 2018. All right reserved.
+    Copyright &copy; 2018 doulalizzy.com. All rights reserved.
   </Wrapper>
 );
 

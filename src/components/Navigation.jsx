@@ -106,7 +106,7 @@ const Navigation = () => (
           >
             Привет
           </Link>
-          <Link
+          {/* <Link
             to="/about"
             activeClassName={css`
               ${active};
@@ -129,29 +129,22 @@ const Navigation = () => (
             `}
           >
             Контакты
-          </Link>
+          </Link> */}
         </Links>
         <SocialMedia>
           <a
-            href="https://www.instagram.com/lekoarts.de"
+            href="https://www.instagram.com/doula_lizzy/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaInstagram />
           </a>
           <a
-            href="https://www.behance.net/lekoarts"
+            href="https://www.facebook.com/lizaveta.schaefer"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaFacebook />
-          </a>
-          <a
-            href="https://dribbble.com/LeKoArts"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaYoutubeSquare />
           </a>
         </SocialMedia>
       </Nav>
