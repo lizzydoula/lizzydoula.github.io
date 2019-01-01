@@ -3,15 +3,7 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { ProjectListing, Layout } from 'components';
 
-const Index = ({
-  data: {
-    allMarkdownRemark: { edges: projectEdges },
-  },
-}) => (
-  <Layout>
-    {/* <ProjectListing projectEdges={projectEdges} /> */}
-  </Layout>
-);
+const Index = () => <Layout />;
 
 export default Index;
 
