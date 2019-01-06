@@ -146,6 +146,13 @@ const Navigation = () => (
           >
             <FaFacebook />
           </a>
+          <a
+            href="https://www.youtube.com/channel/UCAn9mBvc8dTjhDwYS3yjajg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutubeSquare />
+          </a>
         </SocialMedia>
       </Nav>
     </TopHeader>
