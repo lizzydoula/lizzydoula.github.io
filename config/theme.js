@@ -1,12 +1,24 @@
 import { darken } from 'polished'
 
 const brand = {
+  // LEGACY colors
   primary: '#cbafa9',
   secondary: '#8a8080'
 }
 
+// color palette
 const colors = {
-  black: '#3d2c2d',
+  wild_sand: '#EEEBEA',
+  ebb: '#E7D7D4',
+  chablis: '#FDE9E1',
+  almond_frost: '#A58580',
+  suva_grey: '#8A8080',
+  black: '#000000',
+
+  /**
+   * LEGACY colors
+   * TO DO: remove
+   */
   grey: '#25252',
   bg_color: '#f3f3f3',
   body_color: '#222',
