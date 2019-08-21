@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'react-emotion';
+import React from 'react'
+import styled from 'react-emotion'
 
 const Wrapper = styled.footer`
   margin: 5rem 0;
@@ -9,12 +9,8 @@ const Wrapper = styled.footer`
     text-decoration: none;
     color: ${props => props.theme.brand.primary};
   }
-`;
+`
 
-const Footer = () => (
-  <Wrapper>
-    Copyright &copy; 2018 doulalizzy.com. All rights reserved.
-  </Wrapper>
-);
+const Footer = () => <Wrapper>Copyright &copy; 2018 doulalizzy.com. All rights reserved.</Wrapper>
 
-export default Footer;
+export default Footer

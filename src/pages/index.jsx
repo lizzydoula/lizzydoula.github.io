@@ -1,19 +1,19 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import { ProjectListing, Layout } from 'components';
+import React from 'react'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import { ProjectListing, Layout } from 'components'
 
-const Index = () => <Layout />;
+const Index = () => <Layout />
 
-export default Index;
+export default Index
 
 Index.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
-    }),
-  }).isRequired,
-};
+      edges: PropTypes.array.isRequired
+    })
+  }).isRequired
+}
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -38,4 +38,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

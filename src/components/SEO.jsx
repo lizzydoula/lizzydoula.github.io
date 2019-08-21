@@ -1,29 +1,29 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import config from '../../config/website';
+import React from 'react'
+import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
+import config from '../../config/website'
 
 const SEO = props => {
-  const { postNode, postPath, postSEO } = props;
-  let title;
-  let description;
-  let image;
-  let postURL;
-  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+  const { postNode, postPath, postSEO } = props
+  let title
+  let description
+  let image
+  let postURL
+  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   if (postSEO) {
-    const postMeta = postNode.frontmatter;
-    title = postMeta.title; // eslint-disable-line prefer-destructuring
-    description = postNode.excerpt;
-    image = postMeta.cover.childImageSharp.resize.src;
-    postURL = config.siteUrl + realPrefix + postPath;
+    const postMeta = postNode.frontmatter
+    title = postMeta.title // eslint-disable-line prefer-destructuring
+    description = postNode.excerpt
+    image = postMeta.cover.childImageSharp.resize.src
+    postURL = config.siteUrl + realPrefix + postPath
   } else {
-    title = config.siteTitle;
-    description = config.siteDescription;
-    image = config.siteLogo;
+    title = config.siteTitle
+    description = config.siteDescription
+    image = config.siteLogo
   }
-  image = config.siteUrl + realPrefix + image;
-  const blogURL = config.siteUrl + config.pathPrefix;
+  image = config.siteUrl + realPrefix + image
+  const blogURL = config.siteUrl + config.pathPrefix
   let schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
@@ -31,9 +31,9 @@ const SEO = props => {
       '@id': blogURL,
       url: blogURL,
       name: title,
-      alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
-    },
-  ];
+      alternateName: config.siteTitleAlt ? config.siteTitleAlt : ''
+    }
+  ]
   if (postSEO) {
     schemaOrgJSONLD = [
       {
@@ -46,30 +46,30 @@ const SEO = props => {
         headline: title,
         image: {
           '@type': 'ImageObject',
-          url: image,
+          url: image
         },
         description,
         datePublished: postNode.frontmatter.date,
         dateModified: postNode.frontmatter.date,
         author: {
           '@type': 'Person',
-          name: config.author,
+          name: config.author
         },
         publisher: {
           '@type': 'Organization',
           name: config.author,
           logo: {
             '@type': 'ImageObject',
-            url: config.siteUrl + realPrefix + config.siteLogo,
-          },
+            url: config.siteUrl + realPrefix + config.siteLogo
+          }
         },
         isPartOf: blogURL,
         mainEntityOfPage: {
           '@type': 'WebSite',
-          '@id': blogURL,
-        },
-      },
-    ];
+          '@id': blogURL
+        }
+      }
+    ]
   }
   return (
     <Helmet>
@@ -93,13 +93,13 @@ const SEO = props => {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} /> */}
     </Helmet>
-  );
-};
+  )
+}
 
-export default SEO;
+export default SEO
 
 SEO.propTypes = {
   postNode: PropTypes.object,
   postPath: PropTypes.string,
-  postSEO: PropTypes.bool,
-};
+  postSEO: PropTypes.bool
+}

@@ -1,11 +1,11 @@
-const config = require('./config/website');
+const config = require('./config/website')
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
+    siteUrl: config.siteUrl + pathPrefix
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -13,15 +13,15 @@ module.exports = {
       resolve: 'gatsby-plugin-emotion',
       options: {
         autoLabel: process.env.NODE_ENV !== 'production',
-        labelFormat: '[filename]--[local]',
-      },
+        labelFormat: '[filename]--[local]'
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'projects',
-        path: `${__dirname}/content/projects`,
-      },
+        path: `${__dirname}/content/projects`
+      }
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -32,31 +32,31 @@ module.exports = {
             options: {
               maxWidth: 820,
               quality: 90,
-              linkImagesToOriginal: false,
-            },
+              linkImagesToOriginal: false
+            }
           },
           {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
-              rel: 'nofollow noopener noreferrer',
-            },
+              rel: 'nofollow noopener noreferrer'
+            }
           },
-          'gatsby-remark-responsive-iframe',
-        ],
-      },
+          'gatsby-remark-responsive-iframe'
+        ]
+      }
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: config.googleAnalyticsID,
-      },
+        trackingId: config.googleAnalyticsID
+      }
     },
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: config.themeColor,
-      },
+        color: config.themeColor
+      }
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -64,8 +64,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'src/utils/typography.jsx',
-      },
+        pathToConfigModule: 'src/utils/typography.jsx'
+      }
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
@@ -79,10 +79,10 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'standalone',
-        icon: 'src/favicon.jpg',
-      },
+        icon: 'src/favicon.jpg'
+      }
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
-  ],
-};
+    'gatsby-plugin-netlify'
+  ]
+}

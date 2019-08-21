@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import { FaInstagram, FaFacebook, FaYoutubeSquare } from 'react-icons/fa';
-import styled, { css } from 'react-emotion';
-import config from '../../config/website';
-import theme from '../../config/theme';
+import React from 'react'
+import { Link } from 'gatsby'
+import { FaInstagram, FaFacebook, FaYoutubeSquare } from 'react-icons/fa'
+import styled, { css } from 'react-emotion'
+import config from '../../config/website'
+import theme from '../../config/theme'
 
 const Wrapper = styled.header`
   a {
     color: ${props => props.theme.colors.black};
     text-decoration: none;
   }
-`;
+`
 
 const TopHeader = styled.div`
   padding: 1.5rem 0;
@@ -25,7 +25,7 @@ const TopHeader = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     padding: 1rem 0;
   }
-`;
+`
 
 const BottomHeader = styled.img`
   margin: 0;
@@ -33,12 +33,12 @@ const BottomHeader = styled.img`
   width: 100%;
   object-fit: cover;
   opacity: 0.8;
-`;
+`
 
 const active = css`
   border-color: ${theme.brand.primary} !important;
   border-bottom: 3px solid;
-`;
+`
 
 const Nav = styled.nav`
   display: flex;
@@ -56,11 +56,11 @@ const Nav = styled.nav`
   @media (max-width: ${props => props.theme.breakpoints.xs}) {
     order: 2;
   }
-`;
+`
 
 const Links = styled.div`
   display: flex;
-`;
+`
 
 const SocialMedia = styled.div`
   display: flex;
@@ -81,14 +81,14 @@ const SocialMedia = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.xs}) {
     order: 3;
   }
-`;
+`
 
 const LogoImage = styled.img`
   margin: 0;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     padding: 0 2rem;
   }
-`;
+`
 
 const Navigation = () => (
   <Wrapper>
@@ -106,14 +106,7 @@ const Navigation = () => (
           >
             Привет
           </Link>
-          {/* <Link
-            to="/about"
-            activeClassName={css`
-              ${active};
-            `}
-          >
-            Обо мне
-          </Link>
+          {/* 
           <Link
             to="/services"
             activeClassName={css`
@@ -132,25 +125,13 @@ const Navigation = () => (
           </Link> */}
         </Links>
         <SocialMedia>
-          <a
-            href="https://www.instagram.com/doula_lizzy/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.instagram.com/doula_lizzy/" target="_blank" rel="noopener noreferrer">
             <FaInstagram />
           </a>
-          <a
-            href="https://www.facebook.com/doulalizzyCY"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.facebook.com/doulalizzyCY" target="_blank" rel="noopener noreferrer">
             <FaFacebook />
           </a>
-          <a
-            href="https://www.youtube.com/channel/UCAn9mBvc8dTjhDwYS3yjajg"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.youtube.com/channel/UCAn9mBvc8dTjhDwYS3yjajg" target="_blank" rel="noopener noreferrer">
             <FaYoutubeSquare />
           </a>
         </SocialMedia>
@@ -158,6 +139,6 @@ const Navigation = () => (
     </TopHeader>
     <BottomHeader src="/doula.jpg" alt="Доула" />
   </Wrapper>
-);
+)
 
-export default Navigation;
+export default Navigation

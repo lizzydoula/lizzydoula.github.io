@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ThemeProvider } from 'emotion-theming';
-import { Container, SEO, Navigation, Footer } from 'components';
-import theme from '../../config/theme';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { ThemeProvider } from 'emotion-theming'
+import { Container, SEO, Navigation, Footer } from 'components'
+import theme from '../../config/theme'
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
@@ -15,10 +15,10 @@ const Layout = ({ children }) => (
       <Footer />
     </React.Fragment>
   </ThemeProvider>
-);
+)
 
-export default Layout;
+export default Layout
 
 Layout.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-};
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired
+}

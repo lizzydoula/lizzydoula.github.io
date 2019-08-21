@@ -1,5 +1,5 @@
-const chalk = require('chalk');
-const pkg = require('../package.json');
+const chalk = require('chalk')
+const pkg = require('../package.json')
 
 // prettier-ignore
 console.log(`

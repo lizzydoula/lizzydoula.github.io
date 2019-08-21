@@ -5,7 +5,8 @@ module.exports = {
   siteUrl: 'https://doulalizzy.com', // Domain of your site. No trailing slash!
   siteLanguage: 'ru', // Language Tag on <html> element
   siteLogo: '/logos/logo-1024.png', // Used for SEO and manifest
-  siteDescription: 'Доула Лиза на Кипре: курсы и нейрографика для беременных, индивидуальные консультации, сопровождение в родах, послеродовое восстановление и пеленание, массаж живота, онлайн поддержка, помощь по грудному вскармливанию',
+  siteDescription:
+    'Доула Лиза на Кипре: курсы и нейрографика для беременных, индивидуальные консультации, сопровождение в родах, послеродовое восстановление и пеленание, массаж живота, онлайн поддержка, помощь по грудному вскармливанию',
   author: 'Lizaveta Schaefer', // Author for schemaORGJSONLD
   // siteFBAppID: '123456789', // Facebook App ID - Optional
   // userTwitter: '@emma', // Twitter Username
@@ -18,5 +19,5 @@ module.exports = {
   // Settings for typography.jsx
   headerFontFamily: 'Merriweather',
   bodyFontFamily: 'Roboto',
-  baseFontSize: '16px',
-};
+  baseFontSize: '16px'
+}
