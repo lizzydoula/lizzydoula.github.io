@@ -1,20 +1,36 @@
+// libs
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'react-emotion'
+
+// components
 import { ThemeProvider } from 'emotion-theming'
-import { Container, SEO, Navigation, Footer } from 'components'
+import { PageHeader, SEO, Footer } from 'components'
+
+// constants
 import theme from '../../config/theme'
 
+const Main = styled.main`
+  flex: 1;
+`
+
+const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`
+
 const Layout = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <React.Fragment>
-      <SEO />
-      <Container>
-        <Navigation />
-      </Container>
-      {children}
-      <Footer />
-    </React.Fragment>
-  </ThemeProvider>
+  <Page>
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <SEO />
+        <PageHeader />
+        <Main>{children}</Main>
+        <Footer />
+      </React.Fragment>
+    </ThemeProvider>
+  </Page>
 )
 
 export default Layout
