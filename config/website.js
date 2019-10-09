@@ -17,7 +17,7 @@ module.exports = {
   themeColor: '#3498DB',
   backgroundColor: '#2b2e3c',
   // Settings for typography.jsx
-  headerFontFamily: 'Merriweather',
-  bodyFontFamily: 'Roboto',
+  headerFontFamily: 'Prata',
+  bodyFontFamily: 'Open Sans',
   baseFontSize: '16px'
 }
