@@ -9,6 +9,8 @@ const colors = {
   suva_grey: '#8A8080',
   shady_lady: '#979797',
   black: '#000000',
+  white: '#FFFFFF',
+  tide: '#C4B8B0',
 
   /**
    * LEGACY colors

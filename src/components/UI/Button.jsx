@@ -8,14 +8,15 @@ const basicStyles = css`
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  font-size: 9px;
+  font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
   box-sizing: border-box;
+  cursor: pointer;
 `
 
 const outlinedStyles = css`
-  padding: 9px 24px;
+  padding: 7px 12px;
   border-width: 1px;
   border-style: solid;
 `
@@ -24,7 +25,15 @@ const linkStyles = css`
   text-decoration: none;
 `
 
-const Button = ({ className, variant = 'outlined', color = 'default', href = '', children = null, target = '' }) => {
+const Button = ({
+  className,
+  variant = 'outlined',
+  color = 'default',
+  href = '',
+  children = null,
+  target = '',
+  type
+}) => {
   const Component = href ? 'a' : 'button'
 
   return (
@@ -39,6 +48,7 @@ const Button = ({ className, variant = 'outlined', color = 'default', href = '',
       })}
       href={href}
       target={target}
+      type={type}
     >
       {children}
     </Component>

@@ -9,7 +9,7 @@ const typography = new Typography({
   headerFontFamily: [config.headerFontFamily, 'sans-serif'],
   bodyFontFamily: [config.bodyFontFamily, 'sans-serif'],
   scaleRatio: 2.5,
-  headerWeight: 700,
+  headerWeight: 400,
   googleFonts: [
     {
       name: config.headerFontFamily,
@@ -17,7 +17,7 @@ const typography = new Typography({
     },
     {
       name: config.bodyFontFamily,
-      styles: ['400']
+      styles: ['400', '700']
     }
   ]
 })

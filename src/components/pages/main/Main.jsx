@@ -150,7 +150,7 @@ const Main = () => (
     <Container>
       <Row>
         <Col style={emptyPaddingStyles} xs={12}>
-          <PromoImage />
+          <PromoImage src="/doula.jpg" />
         </Col>
       </Row>
     </Container>
