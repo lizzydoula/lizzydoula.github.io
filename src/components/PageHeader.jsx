@@ -5,7 +5,6 @@ import styled, { css } from 'react-emotion'
 
 // components
 import { Container, Row, Col } from 'react-grid'
-import { Button } from './UI/Button'
 import { HorizontalLogo } from './UI/HorizontalLogo'
 
 const Header = styled.header`
@@ -31,10 +30,6 @@ const logoLinkStyles = css`
   display: inline-flex;
 `
 
-const bookLinkStyles = css`
-  margin-left: auto;
-`
-
 const PageHeader = () => (
   <Header>
     <Container>
@@ -44,14 +39,6 @@ const PageHeader = () => (
             <Link className={logoLinkStyles} to="/">
               <HorizontalLogo />
             </Link>
-            <Button
-              className={bookLinkStyles}
-              href="https://doulalizzy.simplybook.me"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Записаться
-            </Button>
           </HeaderLayout>
         </Col>
       </Row>
