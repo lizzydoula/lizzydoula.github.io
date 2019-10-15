@@ -10,7 +10,7 @@ const SEO = props => {
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   const title = config.siteTitle
   const description = config.siteDescription
-  const image = config.siteUrl + realPrefix + image
+  const image = config.siteUrl + realPrefix + config.siteLogo
   const blogURL = config.siteUrl + config.pathPrefix
 
   return (
