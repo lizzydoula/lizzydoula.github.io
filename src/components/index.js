@@ -3,7 +3,6 @@ import Footer from './Footer'
 import Header from './Header'
 import Layout from './Layout'
 import { PageHeader } from './PageHeader'
-import ProjectListing from './ProjectListing'
 import SEO from './SEO'
 
-export { Container, Footer, Header, Layout, PageHeader, ProjectListing, SEO }
+export { Container, Footer, Header, Layout, PageHeader, SEO }

@@ -21,45 +21,6 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-
-  return new Promise((resolve, reject) => {
-    const projectPage = path.resolve('src/templates/project.jsx')
-    resolve(
-      graphql(`
-        {
-          projects: allMarkdownRemark {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-              }
-            }
-          }
-        }
-      `).then(result => {
-        if (result.errors) {
-          /* eslint no-console: "off" */
-          console.log(result.errors)
-          reject(result.errors)
-        }
-
-        result.data.projects.edges.forEach(edge => {
-          createPage({
-            path: edge.node.fields.slug,
-            component: projectPage,
-            context: {
-              slug: edge.node.fields.slug
-            }
-          })
-        })
-      })
-    )
-  })
-}
-
 /* Allow us to use something like: import { X } from 'directory' instead of '../../folder/directory' */
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({

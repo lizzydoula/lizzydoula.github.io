@@ -4,7 +4,7 @@ module.exports = {
   siteTitleAlt: 'Доула Лиза на Кипре: курсы для беременных, сопровождение в родах и послеродовое восстановление', // Alternative Site title for SEO
   siteUrl: 'https://doulalizzy.com', // Domain of your site. No trailing slash!
   siteLanguage: 'ru', // Language Tag on <html> element
-  siteLogo: '/logos/logo-1024.png', // Used for SEO and manifest
+  siteLogo: '/logos/logo-192x192.png', // Used for SEO and manifest
   siteDescription:
     'Доула Лиза на Кипре: курсы и нейрографика для беременных, индивидуальные консультации, сопровождение в родах, послеродовое восстановление и пеленание, массаж живота, онлайн поддержка, помощь по грудному вскармливанию',
   author: 'Lizaveta Schaefer', // Author for schemaORGJSONLD

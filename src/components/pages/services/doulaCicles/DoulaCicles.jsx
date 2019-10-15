@@ -179,6 +179,8 @@ const CourseFeatureTitle = styled.h2`
 `
 
 const CourseFeatureDescription = styled.div`
+  font-size: 14px;
+  line-height: 24px;
   color: ${theme.brand.text.primary};
 `
 
@@ -317,7 +319,7 @@ const DoulaCicles = () => (
             <CourseFeatureTitle>Делимся опытом</CourseFeatureTitle>
             <CourseFeatureDescription>
               Вы беременны впервые или вторым, третьим или шестым ребенком – не важно, тут вы найдете безопасное
-              пространство, чтобы поделится своими переживаниями и радостями и найдете ответы. Сможете проживать
+              пространство, чтобы поделиться своими переживаниями и радостями и найдете ответы. Сможете проживать
               беременность в кругу понимающих людей, в безопасной обстановке и выговариваться.
             </CourseFeatureDescription>
           </CourseFeature>
