@@ -30,6 +30,18 @@ const logoLinkStyles = css`
   display: inline-flex;
 `
 
+const circlesLinkStyles = css`
+  margin-left: auto;
+  text-decoration: none;
+`
+
+const Text = styled.div`
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: ${props => props.theme.colors.black};
+`
+
 const PageHeader = () => (
   <Header>
     <Container>
@@ -38,6 +50,9 @@ const PageHeader = () => (
           <HeaderLayout>
             <Link className={logoLinkStyles} to="/">
               <HorizontalLogo />
+            </Link>
+            <Link className={circlesLinkStyles} to="/services/pregnancy/doula-circles">
+              <Text>Доульский кружок</Text>
             </Link>
           </HeaderLayout>
         </Col>

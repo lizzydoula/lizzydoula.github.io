@@ -11,6 +11,7 @@ const colors = {
   black: '#000000',
   white: '#FFFFFF',
   tide: '#C4B8B0',
+  just_right: '#DFBFB0',
 
   /**
    * LEGACY colors

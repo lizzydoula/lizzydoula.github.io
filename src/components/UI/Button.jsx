@@ -13,12 +13,19 @@ const basicStyles = css`
   text-transform: uppercase;
   box-sizing: border-box;
   cursor: pointer;
+  white-space: nowrap;
+  padding: 7px 12px;
 `
 
 const outlinedStyles = css`
-  padding: 7px 12px;
   border-width: 1px;
   border-style: solid;
+`
+
+const containedStyles = css`
+  border: none;
+  color: ${theme.colors.white};
+  background-color: ${theme.colors.just_right};
 `
 
 const linkStyles = css`
@@ -43,6 +50,7 @@ const Button = ({
         border-color: ${theme.brand[color]};
       `}
       className={cx(className, basicStyles, {
+        [containedStyles]: variant === 'contained',
         [outlinedStyles]: variant === 'outlined',
         [linkStyles]: href.length !== 0
       })}
