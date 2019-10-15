@@ -169,6 +169,12 @@ const cardStyles = css`
   }
 `
 
+const metaLayoutCss = css`
+  @media (min-width: ${theme.breakpoints.lg}) {
+    padding: 0 32px;
+  }
+`
+
 const DoulaCicles = () => (
   <Layout>
     <Helmet title={`Доульский кружок | ${config.siteTitle}`} />
@@ -187,6 +193,7 @@ const DoulaCicles = () => (
         <Col xs={12}>
           <Divider />
           <ServiceMeta
+            className={metaLayoutCss}
             title={content.meta.title}
             description={content.meta.description}
             duration={content.meta.duration}
