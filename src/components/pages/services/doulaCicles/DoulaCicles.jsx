@@ -82,6 +82,12 @@ const CourseFeatureImage = styled.img`
   top: -64px;
 `
 
+const Congratulation = styled.div`
+  font-size: 14px;
+  line-height: 24px;
+  color: ${theme.brand.text.primary};
+`
+
 function encode(data) {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -90,6 +96,7 @@ function encode(data) {
 
 export const ParticipationForm = () => {
   const [formData, setFormData] = React.useState({})
+  const [isSubmitted, setSubmitted] = React.useState(false)
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -106,36 +113,43 @@ export const ParticipationForm = () => {
         ...formData
       })
     })
-      .then(() => console.log('success'))
+      .then(setSubmitted(true))
       .catch(error => console.error(error))
   }
 
+  if (isSubmitted) {
+    return <Congratulation>Спасибо! Я обязательно свяжусь с Вами в ближайшее время.</Congratulation>
+  }
+
   return (
-    <form
-      name="participation"
-      method="post"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}
-    >
-      <FormLayout>
-        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-        <input type="hidden" name="form-name" value="participation" />
-        <div className={hiddenStyles}>
-          <label htmlFor="bot-field">
-            Don’t fill this out: <input id="bot-field" name="bot-field" onChange={handleChange} />
-          </label>
-        </div>
-        <FormGroup>
-          <label htmlFor="email">
-            <FormGroupField type="email" id="email" name="email" onChange={handleChange} placeholder="Email" />
-          </label>
-        </FormGroup>
-        <Button className={formButtonStyles} variant="contained" type="submit">
-          Я участвую
-        </Button>
-      </FormLayout>
-    </form>
+    <div>
+      <form
+        name="participation"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        <FormLayout>
+          {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+          <input type="hidden" name="form-name" value="participation" />
+          <div className={hiddenStyles}>
+            <label htmlFor="bot-field">
+              Don’t fill this out: <input id="bot-field" name="bot-field" onChange={handleChange} />
+            </label>
+          </div>
+          <FormGroup>
+            <label htmlFor="email">
+              <FormGroupField type="email" id="email" name="email" onChange={handleChange} placeholder="Email" />
+            </label>
+          </FormGroup>
+          <Button className={formButtonStyles} variant="contained" type="submit">
+            Я участвую
+          </Button>
+        </FormLayout>
+      </form>
+      <Text>Стоимость курса 190 EUR, первая встреча – бесплатно</Text>
+    </div>
   )
 }
 
@@ -272,7 +286,6 @@ const DoulaCicles = () => (
         <Col xs={12}>
           <CourseSubscription>
             <ParticipationForm />
-            <Text>Стоимость курса 190 EUR, первая встреча – бесплатно</Text>
           </CourseSubscription>
         </Col>
       </Row>
@@ -347,7 +360,6 @@ const DoulaCicles = () => (
         <Col xs={12}>
           <CourseSubscription>
             <ParticipationForm />
-            <Text>Стоимость курса 190 EUR, первая встреча – бесплатно</Text>
           </CourseSubscription>
         </Col>
       </Row>
