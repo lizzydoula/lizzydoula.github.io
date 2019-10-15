@@ -104,6 +104,11 @@ export const ParticipationForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+
+    if (!formData.email) {
+      return
+    }
+
     const form = e.target
     fetch('/', {
       method: 'POST',
@@ -113,7 +118,7 @@ export const ParticipationForm = () => {
         ...formData
       })
     })
-      .then(setSubmitted(true))
+      .then(() => setSubmitted(true))
       .catch(error => console.error(error))
   }
 
