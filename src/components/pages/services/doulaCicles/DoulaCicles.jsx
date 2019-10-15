@@ -30,7 +30,7 @@ const Heading = styled.h2`
   line-height: 40px;
   color: ${theme.brand.text.primary};
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 `
 const Text = styled.p`
   font-size: 14px;
@@ -175,6 +175,63 @@ const metaLayoutCss = css`
   }
 `
 
+const Reviews = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+`
+
+const Name = styled.div`
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: ${theme.brand.text.primary};
+  margin: 32px 0 16px;
+`
+
+const Content = styled.div`
+  font-size: 14px;
+  line-height: 24px;
+  color: ${theme.brand.text.primary};
+`
+
+const Avatar = styled.div`
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: ${theme.colors.chablis};
+  background-image: url('/flower.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+`
+
+const CardLayout = styled.div`
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    margin: 0;
+    width: 260px;
+  }
+`
+
+const ReviewCard = ({ name, description }) => (
+  <CardLayout>
+    <Avatar />
+    <Name>{name}</Name>
+    <Content>{description}</Content>
+  </CardLayout>
+)
+
 const DoulaCicles = () => (
   <Layout>
     <Helmet title={`Доульский кружок | ${config.siteTitle}`} />
@@ -304,6 +361,18 @@ const DoulaCicles = () => (
             person={content.card.person}
             description={content.card.description}
           />
+          <Divider />
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={12}>
+          <Heading>Отзывы</Heading>
+          <Divider />
+          <Reviews>
+            {content.reviews.map(({ name, description }) => (
+              <ReviewCard name={name} description={description} />
+            ))}
+          </Reviews>
           <Divider />
         </Col>
       </Row>
