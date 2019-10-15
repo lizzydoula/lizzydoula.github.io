@@ -46,6 +46,12 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: config.facebookPixelID
+      }
+    },
+    {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: config.themeColor
