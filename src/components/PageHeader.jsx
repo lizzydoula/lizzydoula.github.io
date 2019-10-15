@@ -20,7 +20,6 @@ const Header = styled.header`
 const HeaderLayout = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 32px;
 `
 
 const logoLinkStyles = css`
