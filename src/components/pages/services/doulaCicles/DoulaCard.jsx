@@ -2,10 +2,15 @@
 import React from 'react'
 import styled, { cx, css } from 'react-emotion'
 
+// components
+import { FlowerIcon } from 'components/UI/Icons/FlowerIcon'
+import { KeyIcon } from 'components/UI/Icons/KeyIcon'
+
 // constants
 import theme from '../../../../../config/theme'
 
 const Card = styled.div`
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
 
@@ -16,11 +21,23 @@ const Card = styled.div`
   }
 `
 
+const CardImageLayout = styled.div`
+  position: relative;
+  overflow: hidden;
+`
+
 const CardImage = styled.img`
   display: block;
   margin: 0 auto;
   max-width: 100%;
   object-fit: cover;
+`
+
+const flowerIconCss = css`
+  position: absolute;
+  bottom: -74px;
+  left: 50%;
+  transform: translateX(calc(-50% + 24px));
 `
 
 const CardInfo = styled.div`
@@ -71,13 +88,39 @@ const Text = styled.p`
   margin: 0;
 `
 
+const topKeyIconCss = css`
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: -40px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    display: none;
+  }
+`
+
+const bottomKeyIconCss = css`
+  display: none;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
+`
+
 const DoulaCard = ({ className, imageSrc, title, person, description }) => (
   <Card className={className}>
-    <CardImage src={imageSrc} width="388" height="388" />
+    <KeyIcon className={topKeyIconCss} />
+    <CardImageLayout>
+      <CardImage src={imageSrc} width="388" height="388" />
+      <FlowerIcon className={flowerIconCss} />
+    </CardImageLayout>
     <CardInfo>
       <CardInfoTitle>{title}</CardInfoTitle>
       <CardInfoPerson>{person}</CardInfoPerson>
       <Text>{description}</Text>
+      <KeyIcon className={bottomKeyIconCss} />
     </CardInfo>
   </Card>
 )
