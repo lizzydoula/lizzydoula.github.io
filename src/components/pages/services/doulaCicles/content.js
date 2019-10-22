@@ -1,7 +1,7 @@
 export const content = {
   place: 'Лимассол. Кипр',
   title: 'Доульский кружок',
-  shortDescription: 'Старт 27 октября 2019. Первая встреча бесплатно.',
+  shortDescription: 'Старт 3 ноября 2019. Первая встреча бесплатно.',
   mainImage: '/doula-circles.png',
   meta: {
     title: 'Что вас ждёт?',
