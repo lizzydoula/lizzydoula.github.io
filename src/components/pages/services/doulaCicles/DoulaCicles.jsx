@@ -289,16 +289,18 @@ const DoulaCicles = () => (
           <Divider />
         </Col>
       </Row>
-      <Row>
-        <Col xs={12}>
-          <CourseSubscription>
-            <ParticipationForm />
-          </CourseSubscription>
-        </Col>
-      </Row>
+      {content.active && (
+        <Row>
+          <Col xs={12}>
+            <CourseSubscription>
+              <ParticipationForm />
+            </CourseSubscription>
+            <Divider />
+          </Col>
+        </Row>
+      )}
       <Row>
         <Col xs={12} style={emptyPaddingStyles}>
-          <Divider />
           <Image src="/doula-circles-2.png" />
           <Divider />
         </Col>
@@ -363,16 +365,18 @@ const DoulaCicles = () => (
           </CourseFeature>
         </Col>
       </Row>
-      <Row>
-        <Col xs={12}>
-          <CourseSubscription>
-            <ParticipationForm />
-          </CourseSubscription>
-        </Col>
-      </Row>
+      {content.active && (
+        <Row>
+          <Col xs={12}>
+            <CourseSubscription>
+              <ParticipationForm />
+            </CourseSubscription>
+            <Divider />
+          </Col>
+        </Row>
+      )}
       <Row>
         <Col xs={12} style={emptyPaddingStyles}>
-          <Divider />
           <DoulaCard
             className={cardStyles}
             imageSrc={content.card.image}
