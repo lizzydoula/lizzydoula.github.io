@@ -39,18 +39,16 @@ const brand = {
 
 export const overlay = ['#f76262', '#216583', '#65c0ba', '#35477d', '#6c5b7b', '#203541', '#9951ff', '#480032']
 
-const theme = {
+export const breakpoints = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 }
+
+export const theme = {
   brand,
   colors,
-  breakpoints: { xs: '0px', sm: '576px', md: '768px', lg: '992px', xl: '1200px' },
-  container: {
-    base: '100rem',
-    text: '55rem'
-  },
-  spacer: {
-    horizontal: '2rem',
-    vertical: '3rem'
+  breakpoints: {
+    xs: `${breakpoints.xs}px`,
+    sm: `${breakpoints.sm}px`,
+    md: `${breakpoints.md}px`,
+    lg: `${breakpoints.lg}px`,
+    xl: `${breakpoints.xl}px`
   }
 }
-
-export default theme

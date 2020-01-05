@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../../../config/theme'
+import { theme } from '../../../config/theme'
 
 const HorizontalLogo = ({ color = theme.colors.black, width = '132', height = '14' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 203.09 23.154">

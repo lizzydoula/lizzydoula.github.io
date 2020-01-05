@@ -8,7 +8,7 @@ import { GiftIcon } from 'components/UI/Icons/GiftIcon'
 import { CalendarIcon } from 'components/UI/Icons/CalendarIcon'
 
 // constants
-import theme from '../../../../../config/theme'
+import { theme } from '../../../../../config/theme'
 
 const Root = styled.div`
   display: flex;

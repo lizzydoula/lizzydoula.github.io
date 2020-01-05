@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../../../../config/theme'
+import { theme } from '../../../../config/theme'
 
 const InstagramIcon = ({ color = theme.colors.almond_frost, width = '20', height = '20' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 20 20">

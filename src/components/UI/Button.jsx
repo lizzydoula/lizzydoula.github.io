@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { cx, css } from 'react-emotion'
 
 // constants
-import theme from '../../../config/theme'
+import { theme } from '../../../config/theme'
 
 const basicStyles = css`
   display: inline-flex;

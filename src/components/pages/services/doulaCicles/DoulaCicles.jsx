@@ -4,7 +4,7 @@ import styled, { css, cx } from 'react-emotion'
 
 // components
 import Helmet from 'react-helmet'
-import { Container, Row, Col } from 'react-grid'
+import { Container, Row, Col } from 'components/UI/Grid'
 import { Layout } from 'components'
 import { ServiceHeader } from 'components/pages/services/doulaCicles/ServiceHeader'
 import { ServiceMeta } from 'components/pages/services/doulaCicles/ServiceMeta'
@@ -15,7 +15,7 @@ import { Divider } from 'components/UI/Divider'
 
 // constants
 import config from '../../../../../config/website'
-import theme from '../../../../../config/theme'
+import { theme } from '../../../../../config/theme'
 
 // content
 import { content } from './content'
@@ -256,9 +256,9 @@ const ReviewCard = ({ name, description }) => (
 const DoulaCicles = () => (
   <Layout>
     <Helmet title={`Доульский кружок | ${config.siteTitle}`} />
-    <Container>
-      <Row>
-        <Col xs={12} style={emptyPaddingStyles}>
+    <Container noPadding>
+      <Row noGutters>
+        <Col xs={12}>
           <ServiceHeader
             title={content.title}
             place={content.place}
@@ -267,6 +267,8 @@ const DoulaCicles = () => (
           />
         </Col>
       </Row>
+    </Container>
+    <Container>
       <Row>
         <Col xs={12}>
           <Divider />

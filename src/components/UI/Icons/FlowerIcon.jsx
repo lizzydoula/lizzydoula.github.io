@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../../../../config/theme'
+import { theme } from '../../../../config/theme'
 
 const FlowerIcon = ({ className, color = theme.colors.white, width = '318', height = '232' }) => (
   <svg

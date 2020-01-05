@@ -5,7 +5,7 @@ import styled, { cx, css } from 'react-emotion'
 // components
 
 // constants
-import theme from '../../../../../config/theme'
+import { theme } from '../../../../../config/theme'
 
 const Root = styled.div`
   position: relative;
