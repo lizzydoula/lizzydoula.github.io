@@ -1,20 +1,27 @@
 // libs
 import React from 'react'
 import styled, { css, cx } from 'react-emotion'
+import { renderDocument } from 'utils/contentful'
 
 // components
-import { Container, Row, Col } from 'react-grid'
+import { LiteYouTubeEmbed } from 'react-lite-youtube-embed'
+import { Container, Row, Col } from 'components/UI/Grid'
 import { Layout } from 'components'
 import { PromoImage } from 'components/PromoImage'
-import { SocialMedia } from 'components/SocialMedia'
+import { Divider } from 'components/UI/Divider'
+import { Typography } from 'components/UI/Typography'
+import { Button } from 'components/UI/Button'
 
 // constants
-import theme from '../../../../config/theme'
+import { theme } from '../../../../config/theme'
 
 const Image = styled.img`
-  display: block;
-  margin: 0 auto;
+  display: none;
   object-fit: contain;
+  @media (min-width: ${theme.breakpoints.lg}) {
+    display: flex;
+    margin: 0 0 0 auto;
+  }
 `
 
 const widgetCol = css`
@@ -23,121 +30,52 @@ const widgetCol = css`
   display: flex;
   flex-direction: column;
   @media (min-width: ${theme.breakpoints.lg}) {
-    padding: 0 41px;
+    padding: 0 32px;
   }
 `
 
-const leftPadding = css`
-  @media (min-width: ${theme.breakpoints.lg}) {
-    padding-left: 41px;
-  }
-
-  @media (min-width: ${theme.breakpoints.xl}) {
-    padding-left: 97px;
-  }
-`
-
-const rightPadding = css`
-  @media (min-width: ${theme.breakpoints.lg}) {
-    padding-right: 41px;
-  }
-
-  @media (min-width: ${theme.breakpoints.lg}) {
-    padding-right: 97px;
-  }
-`
-
-const AboutMeHeading = styled.h2`
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 76px;
-  color: ${theme.brand.text.primary};
-  background: no-repeat url('/brush-3.png');
-  background-position: 50%;
-  position: relative;
+const AboutMeHeading = css`
   text-align: center;
-
+  @media (max-width: ${theme.breakpoints.lg}) {
+    font-size: 40px;
+    line-height: 44px;
+  }
   @media (min-width: ${theme.breakpoints.lg}) {
     text-align: left;
   }
+`
+
+const introVideoStyles = css`
+  @media (min-width: ${theme.breakpoints.lg}) {
+    padding: 0 48px;
+  }
+`
+
+const playButtonStyles = css`
+  background-color: #f00 !important;
+`
+
+const ytLiteStyles = css`
+  opacity: 0.95;
 
   &:before {
-    content: '';
-    display: block;
-    width: 12px;
-    height: 37px;
-    background: no-repeat url('/key.png');
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0px;
-
-    @media (min-width: ${theme.breakpoints.lg}) {
-      left: -42px;
-    }
-
-    @media (min-width: ${theme.breakpoints.xl}) {
-      left: -70px;
-    }
+    content: none;
   }
 `
 
-const AboutMeText = styled.p`
-  font-size: 14px;
-  line-height: 24px;
-  color: ${theme.brand.text.primary};
-
-  &:last-of-type {
-    margin: 0;
-  }
-`
-
-const aboutMeStyles = css`
-  padding-top: 32px;
-  padding-bottom: 32px;
-
-  @media (min-width: ${theme.breakpoints.lg}) {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-`
-
-const socialMediaStyles = css`
-  @media (min-width: ${theme.breakpoints.lg}) {
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    right: 21px;
-    transform: translateY(-50%);
-  }
-  @media (min-width: ${theme.breakpoints.xl}) {
-    right: 31px;
-  }
-`
-
-const emptyPaddingStyles = {
-  padding: '0'
-}
-
-const AboutMe = () => (
-  <Container className={aboutMeStyles}>
+const AboutMe = ({ title, text }) => (
+  <Container>
     <Row>
       <Col xs={12} lg={6}>
-        <div className={cx(widgetCol, leftPadding)}>
-          <AboutMeHeading>Обо мне</AboutMeHeading>
-          <AboutMeText>
-            Меня зовут Лиза Шефер. Я — мама 4 детей, доула, инструктор по подготовке к родам, специалист по
-            послеродовому восстановлению женщин. 9 лет в деле.
-          </AboutMeText>
-          <AboutMeText>
-            Моя профессия — быть феей материнства, чтобы вы могли чувствовать себя уверенно и спокойно в новой роли. Я
-            делаю все, чтобы ваш опыт был максимально кайфовым, не легким и безоблачным, а понятным и по силам вам.
-          </AboutMeText>
+        <div className={widgetCol}>
+          <Typography className={AboutMeHeading} variant="h1" component="h2" bottomMargin>
+            {title}
+          </Typography>
+          {renderDocument(text.json)}
         </div>
       </Col>
-      <Col xs={12} lg={6} style={emptyPaddingStyles}>
-        <div className={cx(widgetCol, rightPadding)}>
-          <SocialMedia className={socialMediaStyles} />
+      <Col xs={12} lg={6}>
+        <div className={widgetCol}>
           <Image src="/me-with-children.png" alt="Доула" width={372} height={372} />
         </div>
       </Col>
@@ -145,17 +83,147 @@ const AboutMe = () => (
   </Container>
 )
 
-const Main = () => (
-  <Layout>
-    <Container>
-      <Row>
-        <Col style={emptyPaddingStyles} xs={12}>
-          <PromoImage src="/doula.jpg" />
-        </Col>
-      </Row>
-    </Container>
-    <AboutMe />
-  </Layout>
+const BrochureWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid ${theme.colors.gainsboro};
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  @media (min-width: ${theme.breakpoints.lg}) {
+    margin: 0 48px;
+    flex-direction: row;
+  }
+`
+
+const BrochureDescription = styled.div`
+  flex: 1;
+  text-align: center;
+  padding: 64px 16px;
+  @media (min-width: ${theme.breakpoints.lg}) {
+    padding: 64px 32px 64px 64px;
+    text-align: left;
+  }
+`
+
+const BrochurePromo = styled.div`
+  flex: 1;
+  background-color: ${theme.colors.chablis};
+  position: relative;
+`
+
+const brochureText = css`
+  > p {
+    font-size: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+  }
+`
+
+const BrochureImage = styled.img`
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  object-fit: contain;
+  @media (min-width: ${theme.breakpoints.lg}) {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+`
+
+const Brochure = ({ blockTitle, title, description, buttonTitle, pdf, bookletAsset }) => (
+  <Container noPadding>
+    <Row noGutters>
+      <Col xs={12}>
+        <BrochureWrapper>
+          <BrochureDescription>
+            <Typography variant="caps" bottomMargin>
+              {blockTitle}
+            </Typography>
+            <Typography className={brochureText} variant="h1" component="h3" bottomMargin>
+              {renderDocument(title.json)}
+            </Typography>
+            <Typography className={brochureText} variant="h5" component="div" bottomMargin>
+              {renderDocument(description.json)}
+            </Typography>
+            <Button
+              variant="contained"
+              href={`https:${pdf.file.url}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={pdf.file.fileName}
+            >
+              {buttonTitle}
+            </Button>
+          </BrochureDescription>
+          <BrochurePromo>
+            <BrochureImage
+              src={`https://${bookletAsset.file.url}`}
+              title={bookletAsset.title}
+              width="336"
+              height="362"
+            />
+          </BrochurePromo>
+        </BrochureWrapper>
+      </Col>
+    </Row>
+  </Container>
 )
+
+const Main = ({ data }) => {
+  const {
+    introTitle,
+    introText,
+    introVideoId,
+    introVideoTitle,
+    brochureBlockTitle,
+    brochureTitle,
+    brochureDescription,
+    brochureCta,
+    brochurePdf,
+    bookletAsset
+  } = data
+  console.log('Data', data)
+
+  return (
+    <Layout>
+      <Container noPadding>
+        <Row noGutters>
+          <Col xs={12}>
+            <PromoImage src="/doula.jpg" />
+          </Col>
+        </Row>
+      </Container>
+      <Divider />
+      <AboutMe title={introTitle} text={introText} />
+      <Divider />
+      <Container noPadding>
+        <Row noGutters>
+          <Col xs={12}>
+            <div className={introVideoStyles}>
+              <LiteYouTubeEmbed
+                id={introVideoId}
+                title={introVideoTitle}
+                poster="maxresdefault"
+                playerClass={`lty-playbtn ${playButtonStyles}`}
+                wrapperClass={`yt-lite ${ytLiteStyles}`}
+              />
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      <Divider />
+      <Brochure
+        blockTitle={brochureBlockTitle}
+        title={brochureTitle}
+        description={brochureDescription}
+        buttonTitle={brochureCta}
+        pdf={brochurePdf}
+        bookletAsset={bookletAsset}
+      />
+      <Divider />
+    </Layout>
+  )
+}
 
 export { Main }

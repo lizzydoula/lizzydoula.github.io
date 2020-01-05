@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../../../../config/theme'
+import { theme } from '../../../../config/theme'
 
 const KeyIcon = ({ className, color = theme.colors.almond_frost, width = '38', height = '12' }) => (
   <svg

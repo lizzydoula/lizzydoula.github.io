@@ -7,7 +7,7 @@ import { FlowerIcon } from 'components/UI/Icons/FlowerIcon'
 import { KeyIcon } from 'components/UI/Icons/KeyIcon'
 
 // constants
-import theme from '../../../../../config/theme'
+import { theme } from '../../../../../config/theme'
 
 const Card = styled.div`
   padding-top: 40px;

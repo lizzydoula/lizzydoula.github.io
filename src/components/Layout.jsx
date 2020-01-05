@@ -8,7 +8,7 @@ import { ThemeProvider } from 'emotion-theming'
 import { PageHeader, SEO, Footer } from 'components'
 
 // constants
-import theme from '../../config/theme'
+import { theme } from '../../config/theme'
 
 const Main = styled.main`
   flex: 1;

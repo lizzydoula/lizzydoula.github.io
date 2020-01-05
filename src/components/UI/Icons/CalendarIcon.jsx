@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../../../../config/theme'
+import { theme } from '../../../../config/theme'
 
 const CalendarIcon = ({ color = theme.colors.almond_frost, width = '24', height = '24' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill={color} width={width} height={height} viewBox="0 0 32 32">

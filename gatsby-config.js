@@ -1,5 +1,9 @@
 const config = require('./config/website')
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 module.exports = {
@@ -82,6 +86,14 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-netlify'
+    'gatsby-plugin-netlify',
+    {
+      resolve: `gatsby-source-contentful`,
+
+      options: {
+        spaceId: 'x29fsil08ck7',
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
+    }
   ]
 }

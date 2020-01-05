@@ -10,6 +10,8 @@
     "postinstall": "node ./bin/hello.js"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^13.4.0",
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
     "emotion-theming": "^9.2.9",
@@ -31,6 +33,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^2.0.4",
     "gatsby-remark-responsive-iframe": "^2.0.5",
+    "gatsby-source-contentful": "^2.1.73",
     "gatsby-source-filesystem": "^2.0.4",
     "gatsby-transformer-remark": "^2.1.7",
     "gatsby-transformer-sharp": "2.2.23",
@@ -43,6 +46,7 @@
     "react-grid": "^4.0.0",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.2.2",
+    "react-lite-youtube-embed": "^0.2.1",
     "react-typography": "^0.16.13",
     "typography": "^0.16.17"
   },

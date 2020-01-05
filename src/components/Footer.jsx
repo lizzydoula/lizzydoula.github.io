@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'react-grid'
 import { SocialMedia } from 'components/SocialMedia'
 
 // constants
-import theme from '../../config/theme'
+import { theme } from '../../config/theme'
 
 const FooterLayout = styled.footer`
   padding: 32px 0;

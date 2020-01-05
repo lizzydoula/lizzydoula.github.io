@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { cx, css } from 'react-emotion'
 
 // constants
-import theme from '../../../config/theme'
+import { theme } from '../../../config/theme'
 
 const basicStyles = css`
   display: inline-flex;
@@ -14,7 +14,8 @@ const basicStyles = css`
   box-sizing: border-box;
   cursor: pointer;
   white-space: nowrap;
-  padding: 7px 12px;
+  padding: 11px 16px;
+  letter-spacing: 0.5px;
 `
 
 const outlinedStyles = css`
@@ -39,6 +40,7 @@ const Button = ({
   href = '',
   children = null,
   target = '',
+  title = '',
   type
 }) => {
   const Component = href ? 'a' : 'button'
@@ -57,6 +59,7 @@ const Button = ({
       href={href}
       target={target}
       type={type}
+      title={title}
     >
       {children}
     </Component>
