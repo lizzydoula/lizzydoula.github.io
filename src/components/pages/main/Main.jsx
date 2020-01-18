@@ -183,7 +183,6 @@ const Main = ({ data }) => {
     brochurePdf,
     bookletAsset
   } = data
-  console.log('Data', data)
 
   return (
     <Layout>

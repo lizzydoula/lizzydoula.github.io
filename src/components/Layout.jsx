@@ -11,6 +11,7 @@ import { PageHeader, SEO, Footer } from 'components'
 import { theme } from '../../config/theme'
 
 const Main = styled.main`
+  padding-top: 68px;
   flex: 1;
 `
 
