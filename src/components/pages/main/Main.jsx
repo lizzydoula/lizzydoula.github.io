@@ -1,6 +1,6 @@
 // libs
 import React from 'react'
-import styled, { css, cx } from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import { renderDocument } from 'utils/contentful'
 
 // components
@@ -170,7 +170,7 @@ const Brochure = ({ blockTitle, title, description, buttonTitle, pdf, bookletAss
   </Container>
 )
 
-const Main = ({ data }) => {
+const Main = ({ data: { mainNavigation, pageContent } }) => {
   const {
     introTitle,
     introText,
@@ -182,10 +182,10 @@ const Main = ({ data }) => {
     brochureCta,
     brochurePdf,
     bookletAsset
-  } = data
+  } = pageContent
 
   return (
-    <Layout>
+    <Layout mainNavigation={mainNavigation}>
       <Container noPadding>
         <Row noGutters>
           <Col xs={12}>

@@ -253,8 +253,8 @@ const ReviewCard = ({ name, description }) => (
   </CardLayout>
 )
 
-const DoulaCicles = () => (
-  <Layout>
+const DoulaCicles = ({ data: { mainNavigation } }) => (
+  <Layout mainNavigation={mainNavigation}>
     <Helmet title={`Доульский кружок | ${config.siteTitle}`} />
     <Container noPadding>
       <Row noGutters>

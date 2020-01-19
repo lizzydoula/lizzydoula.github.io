@@ -6,7 +6,11 @@ import styled, { css, cx } from 'react-emotion'
 // components
 import { Container, Row, Col } from 'react-grid'
 import { HorizontalLogo } from './UI/HorizontalLogo'
+import { MainNavigation } from './MainNavigation'
 import { HamburgerMenuButton } from './UI/HamburgerMenuButton'
+
+// constants
+import { theme } from '../../config/theme'
 
 const NavigationWrapper = styled.header`
   position: fixed;
@@ -15,6 +19,7 @@ const NavigationWrapper = styled.header`
   max-height: none;
   width: 100%;
   z-index: 1;
+  overflow-y: hidden;
   // background: transparent;
   background: white;
   // transition: background 0.3s cubic-bezier(0.52, 0.16, 0.24, 1), height 0.3s 0.1s linear;
@@ -45,21 +50,27 @@ const logoLinkStyles = css`
   height: 14px;
   padding: 8px 4px;
   display: inline-flex;
+  margin-left: 8px;
 `
 
-const circlesLinkStyles = css`
+const menuButton = css`
   margin-left: auto;
-  text-decoration: none;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    display: none;
+  }
 `
 
-const Text = styled.div`
-  font-size: 12px;
-  line-height: 16px;
-  text-transform: uppercase;
-  color: ${props => props.theme.colors.black};
+const DesktopNavigation = styled(MainNavigation)`
+  margin-left: auto;
+  display: none;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    display: flex;
+  }
 `
 
-const PageHeader = () => {
+const PageHeader = ({ navigation }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   return (
@@ -72,15 +83,24 @@ const PageHeader = () => {
                 <Link className={logoLinkStyles} to="/">
                   <HorizontalLogo />
                 </Link>
-                <Link className={circlesLinkStyles} to="/services/pregnancy/doula-circles">
-                  <Text>Доульский кружок</Text>
-                </Link>
-                <HamburgerMenuButton expanded={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
+                <DesktopNavigation items={navigation} />
+                <HamburgerMenuButton
+                  className={menuButton}
+                  expanded={isMenuOpen}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                />
               </Header>
             </Col>
           </Row>
         </Container>
       </Navigation>
+      <Container>
+        <Row>
+          <Col xs={12}>
+            <MainNavigation mobile items={navigation} />
+          </Col>
+        </Row>
+      </Container>
     </NavigationWrapper>
   )
 }

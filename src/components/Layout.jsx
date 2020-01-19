@@ -1,6 +1,5 @@
 // libs
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 
 // components
@@ -21,21 +20,17 @@ const Page = styled.div`
   min-height: 100vh;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ mainNavigation, children }) => (
   <Page>
     <ThemeProvider theme={theme}>
-      <React.Fragment>
+      <>
         <SEO />
-        <PageHeader />
+        <PageHeader navigation={mainNavigation} />
         <Main>{children}</Main>
         <Footer />
-      </React.Fragment>
+      </>
     </ThemeProvider>
   </Page>
 )
 
 export default Layout
-
-Layout.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired
-}

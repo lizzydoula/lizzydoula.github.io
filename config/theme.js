@@ -30,7 +30,8 @@ const brand = {
 
   text: {
     default: colors.black,
-    primary: colors.suva_grey
+    primary: colors.suva_grey,
+    secondary: colors.almond_frost
   },
 
   // LEGACY colors

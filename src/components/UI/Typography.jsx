@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { cx, css } from 'react-emotion'
+import { withTheme } from 'emotion-theming'
 
 // constants
 import { theme } from '../../../config/theme'
@@ -12,6 +13,7 @@ const defaultVariantMapping = {
   h5: 'h5',
   h6: 'h6',
   body1: 'p',
+  body2: 'p',
   caps: 'p'
 }
 
@@ -23,14 +25,17 @@ const defaultVariantStyles = {
   body1: css`
     font-size: 14px;
     line-height: 24px;
-    color: ${theme.brand.text.primary};
+    margin-bottom: 0;
+  `,
+  body2: css`
+    font-size: 18px;
+    line-height: 24px;
     margin-bottom: 0;
   `,
   caps: css`
     font-size: 12px;
     line-height: 16px;
     font-weight: 400;
-    color: ${theme.brand.text.primary};
     margin-bottom: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -39,40 +44,48 @@ const defaultVariantStyles = {
     font-size: 60px;
     line-height: 64px;
     font-weight: 400;
-    color: ${theme.brand.text.primary};
     margin-bottom: 0;
   `,
   h2: css`
     font-size: 40px;
     line-height: 44px;
     font-weight: 400;
-    color: ${theme.brand.text.primary};
     margin-bottom: 0;
   `,
   h3: css`
     font-size: 32px;
     line-height: 40px;
     font-weight: 400;
-    color: ${theme.brand.text.primary};
     margin-bottom: 0;
   `,
   h5: css`
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
-    color: ${theme.brand.text.primary};
     margin-bottom: 0;
   `
 }
 
-const Typography = ({ className, variant = 'body1', component = null, bottomMargin = false, children = null }) => {
-  const Component = component || defaultVariantMapping[variant]
+const Component = ({
+  className,
+  color = 'primary',
+  variant = 'body1',
+  component = null,
+  bottomMargin = false,
+  children = null,
+  theme: currentTheme
+}) => {
+  const textColor = color === 'inherit' ? 'inherit' : currentTheme.brand.text[color]
+  const Tag = component || defaultVariantMapping[variant]
 
   return (
-    <Component className={cx(defaultVariantStyles[variant], className, { [bottomMarginStyles]: bottomMargin })}>
+    <Tag
+      css={{ color: textColor }}
+      className={cx(defaultVariantStyles[variant], className, { [bottomMarginStyles]: bottomMargin })}
+    >
       {children}
-    </Component>
+    </Tag>
   )
 }
 
-export { Typography }
+export const Typography = withTheme(Component)
