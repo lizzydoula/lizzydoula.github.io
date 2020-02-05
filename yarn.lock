@@ -212,7 +212,7 @@
   dependencies:
     "@babel/types" "^7.8.3"
 
-"@babel/helper-module-imports@^7.0.0", "@babel/helper-module-imports@^7.0.0-beta.49":
+"@babel/helper-module-imports@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-module-imports/-/helper-module-imports-7.0.0.tgz#96081b7111e486da4d2cd971ad1a4fe216cc2e3d"
   dependencies:
@@ -928,7 +928,7 @@
     globals "^11.1.0"
     lodash "^4.17.13"
 
-"@babel/types@^7.0.0", "@babel/types@^7.0.0-beta.49", "@babel/types@^7.1.2", "@babel/types@^7.1.3":
+"@babel/types@^7.0.0", "@babel/types@^7.1.2", "@babel/types@^7.1.3":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.1.3.tgz#3a767004567060c2f40fca49a304712c525ee37d"
   dependencies:
@@ -2434,17 +2434,6 @@ babel-plugin-emotion@^9.2.11:
     source-map "^0.5.7"
     touch "^2.0.1"
 
-babel-plugin-lodash@^3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/babel-plugin-lodash/-/babel-plugin-lodash-3.3.4.tgz#4f6844358a1340baed182adbeffa8df9967bc196"
-  integrity sha512-yDZLjK7TCkWl1gpBeBGmuaDIFhZKmkoL+Cu2MUUjv5VxUZx/z7tBGBCBcQs5RI1Bkz5LLmNdjx7paOyQtMovyg==
-  dependencies:
-    "@babel/helper-module-imports" "^7.0.0-beta.49"
-    "@babel/types" "^7.0.0-beta.49"
-    glob "^7.1.1"
-    lodash "^4.17.10"
-    require-package-name "^2.0.1"
-
 babel-plugin-macros@^2.0.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.4.0.tgz#6c5f9836e1f6c0a9743b3bab4af29f73e437e544"
@@ -2459,6 +2448,14 @@ babel-plugin-macros@^2.8.0:
     "@babel/runtime" "^7.7.2"
     cosmiconfig "^6.0.0"
     resolve "^1.12.0"
+
+babel-plugin-ramda@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-ramda/-/babel-plugin-ramda-2.0.0.tgz#e6708b1637dbb754e0cc0d21cd1c34750b0158c8"
+  integrity sha512-PZ/6fmNGshCU7Vt33JRWDDSQqZxOsav1DztZ+VBJFOamE3spyoKuIL9Ve0FQd/oXGlH5jHf/WrpCSGn0MR+YVw==
+  dependencies:
+    "@babel/helper-module-imports" "^7.0.0"
+    ramda "^0.25.0"
 
 babel-plugin-remove-graphql-queries@^2.7.22:
   version "2.7.22"
@@ -6344,15 +6341,6 @@ gatsby-plugin-google-analytics@^2.1.33:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
-gatsby-plugin-lodash@^3.1.19:
-  version "3.1.19"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-lodash/-/gatsby-plugin-lodash-3.1.19.tgz#43b9aabbbcbc8ed98d23d7d3b961f8e198fea595"
-  integrity sha512-Jq0fznPnRvMogt/kEDBzr/w1sJ01zgnRlxpjysoxkYyVv8NR60HF6GxH/kb8lmvPcOQCwAo3SCZbD8CwNNLmeA==
-  dependencies:
-    "@babel/runtime" "^7.7.6"
-    babel-plugin-lodash "^3.3.4"
-    lodash-webpack-plugin "^0.11.5"
-
 gatsby-plugin-manifest@^2.2.37:
   version "2.2.37"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.2.37.tgz#ea385bbd453d8455d3c4715c4f3b1e8c1313a97b"
@@ -6407,6 +6395,14 @@ gatsby-plugin-page-creator@^2.1.38:
     glob "^7.1.6"
     lodash "^4.17.15"
     micromatch "^3.1.10"
+
+gatsby-plugin-ramda@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-ramda/-/gatsby-plugin-ramda-1.0.0.tgz#92d1775c3b3bf0aff2dd668d84589d6b2e5377f9"
+  integrity sha512-0ueDF5dfQiddlGJbr5KXR0U7EoKR7VFb5TjKFgG9rn1YVCKBAxj5aXdYu4HaKfIF4gCx16UQsW/BKF5/eh1f5Q==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    babel-plugin-ramda "^2.0.0"
 
 gatsby-plugin-react-helmet@^3.1.21:
   version "3.1.21"
@@ -6546,6 +6542,14 @@ gatsby-source-filesystem@^2.1.46:
     read-chunk "^3.2.0"
     valid-url "^1.0.9"
     xstate "^4.7.2"
+
+gatsby-source-instagram@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-instagram/-/gatsby-source-instagram-0.6.1.tgz#8ed2548411217c8de790c94c188ce29d529c5ae2"
+  integrity sha512-LmdD+t92hEPC3Ow8Mr2SNMqYBVQpkTdfSGZ0g3V7RvKbPbwy51Nx/okI2K8n3wL7u23O3COhKohtnqhW69VPZA==
+  dependencies:
+    axios "^0.19.0"
+    cheerio "^1.0.0-rc.3"
 
 gatsby-telemetry@^1.1.47:
   version "1.1.47"
@@ -8685,12 +8689,6 @@ lockfile@^1.0.4:
   resolved "https://registry.yarnpkg.com/lockfile/-/lockfile-1.0.4.tgz#07f819d25ae48f87e538e6578b6964a4981a5609"
   dependencies:
     signal-exit "^3.0.2"
-
-lodash-webpack-plugin@^0.11.5:
-  version "0.11.5"
-  resolved "https://registry.yarnpkg.com/lodash-webpack-plugin/-/lodash-webpack-plugin-0.11.5.tgz#c4bd064b4f561c3f823fa5982bdeb12c475390b9"
-  dependencies:
-    lodash "^4.17.4"
 
 lodash._reinterpolate@~3.0.0:
   version "3.0.0"
@@ -11149,6 +11147,16 @@ querystringify@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.0.tgz#7ded8dfbf7879dcc60d0a644ac6754b283ad17ef"
 
+ramda@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
+  integrity sha512-GXpfrYVPwx3K7RQ6aYT8KPS8XViSXUVJT1ONhoKPE9VAleW42YE+U+8VEyGWt41EnEQW7gwecYJriTI0pKoecQ==
+
+ramda@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.0.tgz#915dc29865c0800bf3f69b8fd6c279898b59de43"
+  integrity sha512-pVzZdDpWwWqEVVLshWUHjNwuVP7SfcmPraYuqocJp1yo2U1R7P+5QAfDhdItkuoGqIBnBYrtPp7rEPqDn9HlZA==
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.0.6.tgz#d302c522948588848a8d300c932b44c24231da80"
@@ -11761,10 +11769,6 @@ require-main-filename@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
   integrity sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
-
-require-package-name@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/require-package-name/-/require-package-name-2.0.1.tgz#c11e97276b65b8e2923f75dabf5fb2ef0c3841b9"
 
 requires-port@^1.0.0:
   version "1.0.0"

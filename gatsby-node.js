@@ -1,5 +1,7 @@
 const path = require('path')
-const _ = require('lodash')
+const R = require('ramda')
+
+const toKebabCase = R.compose(R.join('-'), R.split(' '), R.toLower)
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
@@ -9,13 +11,13 @@ exports.onCreateNode = ({ node, actions }) => {
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')
     ) {
-      slug = `/${_.kebabCase(node.frontmatter.slug)}`
+      slug = `/${toKebabCase(node.frontmatter.slug)}`
     }
     if (
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
     ) {
-      slug = `/${_.kebabCase(node.frontmatter.title)}`
+      slug = `/${toKebabCase(node.frontmatter.title)}`
     }
     createNodeField({ node, name: 'slug', value: slug })
   }
