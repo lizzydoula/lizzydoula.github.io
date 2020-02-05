@@ -30,6 +30,7 @@ const linkStyles = css`
   padding: 16px 0;
   text-decoration: none;
   color: ${theme.colors.black};
+  cursor: pointer;
 
   @media (min-width: ${theme.breakpoints.lg}) {
     border: none;
@@ -48,7 +49,7 @@ const MainNavigation = ({ className, items, mobile = false }) => (
     {items.map(navigationItem => (
       <MenuItem key={navigationItem.id}>
         <Link className={linkStyles} activeClassName="active" to={navigationItem.href}>
-          <Typography color={mobile ? 'secondary' : 'inherit'} variant={mobile ? 'body2' : 'caps'}>
+          <Typography color={mobile ? 'secondary' : 'inherit'} variant={mobile ? 'body1' : 'caps'}>
             {navigationItem.title}
           </Typography>
         </Link>

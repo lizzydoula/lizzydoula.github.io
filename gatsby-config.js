@@ -6,6 +6,8 @@ require('dotenv').config({
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
+const contentfulHost = process.env.NODE_ENV !== 'production' ? 'preview.contentful.com' : 'cdn.contentful.com'
+
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
@@ -63,7 +65,7 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-lodash',
+    'gatsby-plugin-ramda',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
@@ -92,7 +94,15 @@ module.exports = {
 
       options: {
         spaceId: 'x29fsil08ck7',
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: contentfulHost
+      }
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
+        instagram_id: process.env.INSTAGRAM_ID
       }
     }
   ]
