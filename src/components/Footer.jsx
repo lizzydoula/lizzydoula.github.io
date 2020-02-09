@@ -20,26 +20,11 @@ const FooterLayout = styled.footer`
   }
 `
 
-const FooterText = styled.p`
-  order: 1;
-  font-size: 14px;
-  line-height: 24px;
-  color: ${theme.brand.text.primary};
-  margin: 0;
-  text-align: center;
-
-  @media (min-width: ${theme.breakpoints.lg}) {
-    order: 0;
-    margin: 0 32px 0 0;
-  }
-`
-
 const Footer = () => (
   <Container>
     <Row>
       <Col>
         <FooterLayout>
-          <FooterText>Copyright &copy; 2018 doulalizzy.com. All rights reserved.</FooterText>
           <SocialMedia />
         </FooterLayout>
       </Col>
