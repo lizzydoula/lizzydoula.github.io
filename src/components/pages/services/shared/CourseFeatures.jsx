@@ -7,6 +7,7 @@ import R from 'ramda'
 
 // components
 import { Typography } from 'components/UI/Typography'
+import Img from 'gatsby-image'
 
 // constants
 import { theme } from '../../../../../config/theme'
@@ -55,16 +56,51 @@ const renderDocumentOptions = {
 const CourseFeatures = ({ className, content }) => {
   const featuresList = R.splitEvery(2, content)
 
+  console.log(featuresList)
+
   return (
     <Section className={className}>
       <FeaturesList>
-        {featuresList.map(([title, description], index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <FeaturesListItem key={index}>
-            {renderDocument(title, renderDocumentOptions)}
-            {renderDocument(description, renderDocumentOptions)}
-          </FeaturesListItem>
-        ))}
+        {featuresList.map((feature, index) => {
+          const imageAsset = R.find(R.propEq('nodeType', 'embedded-asset-block'))(feature)
+
+          if (imageAsset) {
+            const image = R.path(['data', 'target', 'fields', 'file', 'en-US'])(imageAsset)
+            const { width } = image.details.image
+            console.log('IMAGE', image)
+
+            return (
+              // eslint-disable-next-line react/no-array-index-key
+              <FeaturesListItem key={index}>
+                <Img
+                  width={image.details.image.width}
+                  fluid={{
+                    aspectRatio: width / image.details.image.height,
+                    src: `${image.url}?w=630&q=80`,
+                    srcSet: `
+                  ${image.url}?w=${width / 4}&&q=100 ${width / 4}w,
+                  ${image.url}?w=${width / 2}&&q=100 ${width / 2}w,
+                  ${image.url}?w=${width}&&q=100 ${width}w,
+                  ${image.url}?w=${width * 1.5}&&q=100 ${width * 1.5}w,
+                  ${image.url}?w=1000&&q=100 1000w,
+                  `,
+                    sizes: '(max-width: 630px) 100vw, 630px'
+                  }}
+                />
+              </FeaturesListItem>
+            )
+          }
+
+          const [title, description] = feature
+
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <FeaturesListItem key={index}>
+              {renderDocument(title, renderDocumentOptions)}
+              {renderDocument(description, renderDocumentOptions)}
+            </FeaturesListItem>
+          )
+        })}
       </FeaturesList>
     </Section>
   )

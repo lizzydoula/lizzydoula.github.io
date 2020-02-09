@@ -140,8 +140,6 @@ const Post = ({ className, content }) => (
 const InstagramCarousel = ({ className, title = 'Узнайте больше о моём подходе в инстаграмме:', posts }) => {
   const [lastPost, ...otherPosts] = posts
 
-  console.log(posts)
-
   return (
     <Section className={className}>
       <CarouselTitle variant="h2">{title}</CarouselTitle>
