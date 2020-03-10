@@ -114,7 +114,8 @@ const CourseParticipationForm = () => {
           </Button>
         </FormLayout>
       </form>
-      <Text>Стоимость марафона 110 EUR</Text>
+      {/* <Text>Стоимость марафона 110 EUR</Text> */}
+      <Text>Стоимость 190 EUR</Text>
     </div>
   )
 }
