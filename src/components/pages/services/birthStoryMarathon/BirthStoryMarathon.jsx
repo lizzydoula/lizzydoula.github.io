@@ -61,14 +61,18 @@ const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
         </Row>
       </Container>
       <Divider />
-      <Container>
-        <Row>
-          <Col xs={12}>
-            <CourseParticipationForm />
-          </Col>
-        </Row>
-      </Container>
-      <Divider />
+      {isActive && (
+        <>
+          <Container>
+            <Row>
+              <Col xs={12}>
+                <CourseParticipationForm />
+              </Col>
+            </Row>
+          </Container>
+          <Divider />
+        </>
+      )}
       <Container>
         <Row>
           <Col xs={12}>
@@ -85,14 +89,18 @@ const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
         </Row>
       </Container>
       <Divider />
-      <Container>
-        <Row>
-          <Col xs={12}>
-            <CourseParticipationForm />
-          </Col>
-        </Row>
-      </Container>
-      <Divider />
+      {isActive && (
+        <>
+          <Container>
+            <Row>
+              <Col xs={12}>
+                <CourseParticipationForm />
+              </Col>
+            </Row>
+          </Container>
+          <Divider />
+        </>
+      )}
       <Container noPadding>
         <Row noGutters>
           <Col xs={12}>
@@ -109,14 +117,18 @@ const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
         </Row>
       </Container>
       <Divider />
-      <Container>
-        <Row>
-          <Col xs={12}>
-            <CourseParticipationForm />
-          </Col>
-        </Row>
-      </Container>
-      <Divider />
+      {isActive && (
+        <>
+          <Container>
+            <Row>
+              <Col xs={12}>
+                <CourseParticipationForm />
+              </Col>
+            </Row>
+          </Container>
+          <Divider />
+        </>
+      )}
       <Container noPadding>
         <Row noGutters>
           <Col xs={12}>
