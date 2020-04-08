@@ -2,7 +2,7 @@ export const content = {
   active: true,
   place: 'Онлайн. Весь мир',
   title: 'Доульский кружок',
-  shortDescription: 'Старт 5 апреля 2020. Первая встреча бесплатно.',
+  shortDescription: 'Старт 12 апреля 2020. Первая встреча бесплатно.',
   // shortDescription: 'Ближайший набор в группу стартует весной 2020 года.',
   mainImage: '/doula-circles.png',
   meta: {
