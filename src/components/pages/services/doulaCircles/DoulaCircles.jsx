@@ -6,10 +6,10 @@ import styled, { css } from 'react-emotion'
 import Helmet from 'react-helmet'
 import { Container, Row, Col } from 'components/UI/Grid'
 import { Layout } from 'components'
-import { ServiceHeader } from 'components/pages/services/doulaCicles/ServiceHeader'
-import { ServiceMeta } from 'components/pages/services/doulaCicles/ServiceMeta'
-import { ServiceProgram } from 'components/pages/services/doulaCicles/ServiceProgram'
-import { DoulaCard } from 'components/pages/services/doulaCicles/DoulaCard'
+import { ServiceHeader } from 'components/pages/services/doulaCircles/ServiceHeader'
+import { ServiceMeta } from 'components/pages/services/doulaCircles/ServiceMeta'
+import { ServiceProgram } from 'components/pages/services/doulaCircles/ServiceProgram'
+import { DoulaCard } from 'components/pages/services/doulaCircles/DoulaCard'
 import { Divider } from 'components/UI/Divider'
 import { CourseParticipationForm } from 'components/pages/services/shared/CourseParticipationForm'
 
@@ -142,7 +142,7 @@ const ReviewCard = ({ name, description }) => (
   </CardLayout>
 )
 
-const DoulaCicles = ({ data: { mainNavigation } }) => (
+const DoulaCircles = ({ data: { mainNavigation } }) => (
   <Layout mainNavigation={mainNavigation}>
     <Helmet title={`Доульский кружок | ${config.siteTitle}`} />
     <Container noPadding>
@@ -294,4 +294,4 @@ const DoulaCicles = ({ data: { mainNavigation } }) => (
   </Layout>
 )
 
-export { DoulaCicles }
+export { DoulaCircles }
