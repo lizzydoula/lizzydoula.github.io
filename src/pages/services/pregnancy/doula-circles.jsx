@@ -16,6 +16,26 @@ const DoulaCicles = ({ data }) => (
 
 export const query = graphql`
   query DoulaCiclesQuery {
+    allInstaNode(
+      filter: { caption: { regex: "/#doula_lizzy_доульскийкружок/" } }
+      limit: 5
+      sort: { fields: timestamp, order: DESC }
+    ) {
+      edges {
+        node {
+          likes
+          comments
+          id
+          localFile {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 600, maxHeight: 600) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
     contentfulNavigationElement(contentful_id: { eq: "4sRun8bi76VmXA8qxdxluM" }, node_locale: { eq: "ru" }) {
       id
       navigationElements {
