@@ -10,7 +10,7 @@ import { InstagramCarousel } from 'components/InstagramCarousel'
 import { FeaturedSection } from 'components/FeaturedSection'
 import { Divider } from 'components/UI/Divider'
 import { CourseParticipationForm } from 'components/pages/services/shared/CourseParticipationForm'
-import { DoulaCard } from 'components/pages/services/doulaCicles/DoulaCard'
+import { DoulaCard } from 'components/pages/services/doulaCircles/DoulaCard'
 import { CourseDescription } from '../shared/CourseDescription'
 import { CoursePrerequisites } from '../shared/CoursePrerequisites'
 import { CourseProgram } from '../shared/CourseProgram'
@@ -22,7 +22,7 @@ import config from '../../../../../config/website'
 import { theme } from '../../../../../config/theme'
 
 // content
-import { content } from '../doulaCicles/content'
+import { content } from '../doulaCircles/content'
 
 const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
   const {
