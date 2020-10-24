@@ -11,6 +11,7 @@ import { FeaturedSection } from 'components/FeaturedSection'
 import { Divider } from 'components/UI/Divider'
 import { CourseParticipationForm } from 'components/pages/services/shared/CourseParticipationForm'
 import { DoulaCard } from 'components/pages/services/doulaCircles/DoulaCard'
+import { YouTubeVideo } from '../shared/YouTubeVideo'
 import { CourseDescription } from '../shared/CourseDescription'
 import { CoursePrerequisites } from '../shared/CoursePrerequisites'
 import { CourseProgram } from '../shared/CourseProgram'
@@ -29,6 +30,8 @@ const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
     title,
     subtitleActive,
     subtitleInactive,
+    videoId,
+    videoTitle,
     isActive,
     place,
     courseImage,
@@ -73,6 +76,14 @@ const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
           <Divider />
         </>
       )}
+      <Container noPadding>
+        <Row noGutters>
+          <Col xs={12}>
+            <YouTubeVideo id={videoId} title={videoTitle} />
+          </Col>
+        </Row>
+      </Container>
+      <Divider />
       <Container>
         <Row>
           <Col xs={12}>

@@ -56,8 +56,6 @@ const renderDocumentOptions = {
 const CourseFeatures = ({ className, content }) => {
   const featuresList = R.splitEvery(2, content)
 
-  console.log(featuresList)
-
   return (
     <Section className={className}>
       <FeaturesList>

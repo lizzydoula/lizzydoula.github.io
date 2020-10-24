@@ -49,6 +49,8 @@ export const query = graphql`
       isActive
       subtitleActive
       subtitleInactive
+      videoId
+      videoTitle
       description {
         json
       }

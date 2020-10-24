@@ -4,13 +4,13 @@ import styled, { css } from 'react-emotion'
 import { renderDocument } from 'utils/contentful'
 
 // components
-import { LiteYouTubeEmbed } from 'react-lite-youtube-embed'
 import { Container, Row, Col } from 'components/UI/Grid'
 import { Layout } from 'components'
 import { PromoImage } from 'components/PromoImage'
 import { Divider } from 'components/UI/Divider'
 import { Typography } from 'components/UI/Typography'
 import { Button } from 'components/UI/Button'
+import { YouTubeVideo } from '../services/shared/YouTubeVideo'
 
 // constants
 import { theme } from '../../../../config/theme'
@@ -48,18 +48,6 @@ const AboutMeHeading = css`
 const introVideoStyles = css`
   @media (min-width: ${theme.breakpoints.lg}) {
     padding: 0 48px;
-  }
-`
-
-const playButtonStyles = css`
-  background-color: #f00 !important;
-`
-
-const ytLiteStyles = css`
-  opacity: 0.95;
-
-  &:before {
-    content: none;
   }
 `
 
@@ -199,15 +187,7 @@ const Main = ({ data: { mainNavigation, pageContent } }) => {
       <Container noPadding>
         <Row noGutters>
           <Col xs={12}>
-            <div className={introVideoStyles}>
-              <LiteYouTubeEmbed
-                id={introVideoId}
-                title={introVideoTitle}
-                poster="maxresdefault"
-                playerClass={`lty-playbtn ${playButtonStyles}`}
-                wrapperClass={`yt-lite ${ytLiteStyles}`}
-              />
-            </div>
+            <YouTubeVideo className={introVideoStyles} id={introVideoId} title={introVideoTitle} />
           </Col>
         </Row>
       </Container>
