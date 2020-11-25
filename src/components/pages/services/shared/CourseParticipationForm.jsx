@@ -76,7 +76,7 @@ const CourseParticipationForm = ({ course = 'Доульский кружок' })
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        'form-course': course,
+        course,
         ...formData
       })
     })
@@ -109,6 +109,7 @@ const CourseParticipationForm = ({ course = 'Доульский кружок' })
             <label htmlFor="email">
               <FormGroupField type="email" id="email" name="email" onChange={handleChange} placeholder="Email" />
             </label>
+            <input type="hidden" name="course" value={course} />
           </FormGroup>
           <Button className={formButtonStyles} variant="contained" type="submit">
             Я участвую
