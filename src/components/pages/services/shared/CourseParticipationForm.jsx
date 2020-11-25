@@ -55,7 +55,7 @@ function encode(data) {
     .join('&')
 }
 
-const CourseParticipationForm = () => {
+const CourseParticipationForm = ({ course = 'Доульский кружок' }) => {
   const [formData, setFormData] = React.useState({})
   const [isSubmitted, setSubmitted] = React.useState(false)
 
@@ -76,6 +76,7 @@ const CourseParticipationForm = () => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
+        'form-course': course,
         ...formData
       })
     })
@@ -114,8 +115,11 @@ const CourseParticipationForm = () => {
           </Button>
         </FormLayout>
       </form>
+      <Text>35 EUR - самостоятельно (видеоуроки)</Text>
+      <Text>65 EUR - в группе (видеоуроки, чат, 1 встреча в Zoom)</Text>
+      <Text>110 EUR - индивидуально (видеоуроки, моя поддержка в чате, 2 индивидуальные встречи в Zoom)</Text>
       {/* <Text>Стоимость марафона 110 EUR</Text> */}
-      <Text>Стоимость 190 EUR</Text>
+      {/* <Text>Стоимость 190 EUR</Text> */}
     </div>
   )
 }

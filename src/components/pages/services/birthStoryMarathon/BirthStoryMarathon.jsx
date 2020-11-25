@@ -69,7 +69,7 @@ const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
           <Container>
             <Row>
               <Col xs={12}>
-                <CourseParticipationForm />
+                <CourseParticipationForm course="Моя история родов" />
               </Col>
             </Row>
           </Container>
@@ -105,7 +105,7 @@ const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
           <Container>
             <Row>
               <Col xs={12}>
-                <CourseParticipationForm />
+                <CourseParticipationForm course="Моя история родов" />
               </Col>
             </Row>
           </Container>
@@ -133,7 +133,7 @@ const BirthStoryMarathon = ({ data: { mainNavigation, pageContent } }) => {
           <Container>
             <Row>
               <Col xs={12}>
-                <CourseParticipationForm />
+                <CourseParticipationForm course="Моя история родов" />
               </Col>
             </Row>
           </Container>
