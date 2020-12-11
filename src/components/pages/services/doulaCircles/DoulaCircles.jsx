@@ -195,7 +195,7 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
             <Divider />
           </Col>
         </Row>
-        {content.active && (
+        {isActive && (
           <Row>
             <Col xs={12}>
               <CourseSubscription>
@@ -275,7 +275,7 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
             </CourseFeature>
           </Col>
         </Row>
-        {content.active && (
+        {isActive && (
           <Row>
             <Col xs={12}>
               <CourseSubscription>

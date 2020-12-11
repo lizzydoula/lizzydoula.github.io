@@ -1,9 +1,9 @@
 export const content = {
-  active: true,
+  active: false,
   place: 'Лимассол. Кипр',
   title: 'Доульский кружок',
-  shortDescription: 'Старт 27 сентября 2020. Первая встреча бесплатно.',
-  // shortDescription: 'Ближайший набор в группу стартует весной 2020 года.',
+  // shortDescription: 'Старт 27 сентября 2020. Первая встреча бесплатно.',
+  shortDescription: 'Ближайший набор в группу стартует в январе 2021 года.',
   mainImage: '/doula-circles.png',
   meta: {
     title: 'Что вас ждёт?',
