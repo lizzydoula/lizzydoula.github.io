@@ -94,8 +94,37 @@ const BrochureDescription = styled.div`
 
 const BrochurePromo = styled.div`
   flex: 1;
-  background-color: ${theme.colors.chablis};
   position: relative;
+  display: flex;
+  &.type-0 {
+    padding-top: 32px;
+    background-color: ${theme.colors.chablis};
+  }
+  &.type-1 {
+    padding: 32px 0;
+    background-color: ${theme.colors.just_right};
+  }
+`
+
+const brochureTitle = css`
+  font-size: 32px;
+  line-height: 40px;
+
+  @media (min-width: ${theme.breakpoints.md}) {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  @media (min-width: ${theme.breakpoints.xl}) {
+    font-size: 60px;
+    line-height: 64px;
+  }
+
+  > p {
+    font-size: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+  }
 `
 
 const brochureText = css`
@@ -109,17 +138,20 @@ const brochureText = css`
 const BrochureImage = styled.img`
   display: block;
   margin: 0 auto;
-  max-width: 100%;
   object-fit: contain;
-  @media (min-width: ${theme.breakpoints.lg}) {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  max-width: 100%;
+  .type-0 & {
+    min-width: 320px;
+    @media (min-width: ${theme.breakpoints.lg}) {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 `
 
-const Brochure = ({ blockTitle, title, description, buttonTitle, pdf, bookletAsset }) => (
+const Brochure = ({ blockTitle, title, description, buttonTitle, pdf, bookletAsset, type }) => (
   <Container noPadding>
     <Row noGutters>
       <Col xs={12}>
@@ -128,11 +160,11 @@ const Brochure = ({ blockTitle, title, description, buttonTitle, pdf, bookletAss
             <Typography variant="caps" bottomMargin>
               {blockTitle}
             </Typography>
-            <Typography className={brochureText} variant="h1" component="h3" bottomMargin>
-              {renderDocument(title.json)}
+            <Typography className={brochureTitle} variant="h1" component="h3" bottomMargin>
+              {title && renderDocument(title.json)}
             </Typography>
             <Typography className={brochureText} variant="h5" component="div" bottomMargin>
-              {renderDocument(description.json)}
+              {description && renderDocument(description.json)}
             </Typography>
             <Button
               variant="contained"
@@ -144,13 +176,8 @@ const Brochure = ({ blockTitle, title, description, buttonTitle, pdf, bookletAss
               {buttonTitle}
             </Button>
           </BrochureDescription>
-          <BrochurePromo>
-            <BrochureImage
-              src={`https://${bookletAsset.file.url}`}
-              title={bookletAsset.title}
-              width="336"
-              height="362"
-            />
+          <BrochurePromo className={type}>
+            <BrochureImage src={`https://${bookletAsset.file.url}`} title={bookletAsset.title} />
           </BrochurePromo>
         </BrochureWrapper>
       </Col>
@@ -159,18 +186,7 @@ const Brochure = ({ blockTitle, title, description, buttonTitle, pdf, bookletAss
 )
 
 const Main = ({ data: { mainNavigation, pageContent } }) => {
-  const {
-    introTitle,
-    introText,
-    introVideoId,
-    introVideoTitle,
-    brochureBlockTitle,
-    brochureTitle,
-    brochureDescription,
-    brochureCta,
-    brochurePdf,
-    bookletAsset
-  } = pageContent
+  const { introTitle, introText, introVideoId, introVideoTitle, brochures } = pageContent
 
   return (
     <Layout mainNavigation={mainNavigation}>
@@ -192,15 +208,33 @@ const Main = ({ data: { mainNavigation, pageContent } }) => {
         </Row>
       </Container>
       <Divider />
-      <Brochure
-        blockTitle={brochureBlockTitle}
-        title={brochureTitle}
-        description={brochureDescription}
-        buttonTitle={brochureCta}
-        pdf={brochurePdf}
-        bookletAsset={bookletAsset}
-      />
-      <Divider />
+      {brochures.map(
+        (
+          {
+            brochureEntryTitle,
+            brochureBlockTitle,
+            brochureTitle,
+            brochureDescription,
+            brochureCta,
+            brochurePdf,
+            brochureImage
+          },
+          index
+        ) => (
+          <div key={brochureEntryTitle}>
+            <Brochure
+              type={`type-${index}`}
+              blockTitle={brochureBlockTitle}
+              title={brochureTitle}
+              description={brochureDescription}
+              buttonTitle={brochureCta}
+              pdf={brochurePdf}
+              bookletAsset={brochureImage}
+            />
+            <Divider />
+          </div>
+        )
+      )}
     </Layout>
   )
 }

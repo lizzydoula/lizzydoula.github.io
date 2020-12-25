@@ -6,7 +6,7 @@ const Index = ({ data }) => (
   <Main
     data={{
       mainNavigation: data.contentfulNavigationElement.navigationElements,
-      pageContent: { ...data.contentfulPagesMain, bookletAsset: data.contentfulAsset }
+      pageContent: { ...data.contentfulPagesMain }
     }}
   />
 )
@@ -30,27 +30,30 @@ export const query = graphql`
       }
       introVideoId
       introVideoTitle
-      brochureBlockTitle
-      brochureTitle {
-        json
-      }
-      brochureDescription {
-        json
-      }
-      brochureCta
-      brochurePdf {
-        description
-        file {
-          url
-          fileName
+      brochures {
+        brochureEntryTitle
+        brochureBlockTitle
+        brochureTitle {
+          json
+        }
+        brochureDescription {
+          json
+        }
+        brochureCta
+        brochurePdf {
+          description
+          file {
+            url
+            fileName
+          }
+        }
+        brochureImage {
+          title
+          file {
+            url
+          }
         }
       }
-    }
-    contentfulAsset(node_locale: { eq: "ru" }, contentful_id: { eq: "4EVF7yRj7uBkYUszwJgB7i" }) {
-      file {
-        url
-      }
-      title
     }
   }
 `
