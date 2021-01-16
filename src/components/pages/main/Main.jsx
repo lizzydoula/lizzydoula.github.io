@@ -2,6 +2,7 @@
 import React from 'react'
 import styled, { css } from 'react-emotion'
 import { renderDocument } from 'utils/contentful'
+import R from 'ramda'
 
 // components
 import { Container, Row, Col } from 'components/UI/Grid'
@@ -14,6 +15,8 @@ import { YouTubeVideo } from '../services/shared/YouTubeVideo'
 
 // constants
 import { theme } from '../../../../config/theme'
+
+const toKebabCase = R.compose(R.join('-'), R.split(' '), R.toLower)
 
 const Image = styled.img`
   display: none;
@@ -207,6 +210,7 @@ const Main = ({ data: { mainNavigation, pageContent } }) => {
           </Col>
         </Row>
       </Container>
+      <div id="brochure" />
       <Divider />
       {brochures.map(
         (
@@ -221,7 +225,7 @@ const Main = ({ data: { mainNavigation, pageContent } }) => {
           },
           index
         ) => (
-          <div key={brochureEntryTitle}>
+          <div key={brochureEntryTitle} id={toKebabCase(brochureEntryTitle)}>
             <Brochure
               type={`type-${index}`}
               blockTitle={brochureBlockTitle}

@@ -104,6 +104,12 @@ module.exports = {
         access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
         instagram_id: process.env.INSTAGRAM_ID
       }
+    },
+    {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -100
+      }
     }
   ]
 }
