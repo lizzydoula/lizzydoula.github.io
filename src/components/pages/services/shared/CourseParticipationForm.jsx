@@ -116,7 +116,7 @@ const CourseParticipationForm = ({ course = 'Доульский кружок' })
           </Button>
         </FormLayout>
       </form>
-      <Text>Стоимость 170 EUR</Text>
+      <Text>Стоимость 240 EUR</Text>
       {/* <Text>35 EUR - самостоятельно (видеоуроки)</Text>
       <Text>65 EUR - в группе (видеоуроки, чат, 1 встреча в Zoom)</Text>
       <Text>110 EUR - индивидуально (видеоуроки, моя поддержка в чате, 2 индивидуальные встречи в Zoom)</Text> */}

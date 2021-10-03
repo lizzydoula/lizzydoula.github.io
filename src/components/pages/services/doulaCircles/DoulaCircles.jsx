@@ -303,7 +303,7 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
             <Divider />
             <Reviews>
               {content.reviews.map(({ name, description }) => (
-                <ReviewCard name={name} description={description} />
+                <ReviewCard key={name} name={name} description={description} />
               ))}
             </Reviews>
             <Divider />
