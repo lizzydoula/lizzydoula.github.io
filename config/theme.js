@@ -13,6 +13,7 @@ const colors = {
   tide: '#C4B8B0',
   just_right: '#DFBFB0',
   gainsboro: '#D8D8D8',
+  error: '#d32f2f',
 
   /**
    * LEGACY colors

@@ -5,14 +5,10 @@ import styled, { cx, css } from 'react-emotion'
 import { theme } from '../../../config/theme'
 
 const basicStyles = css`
-  display: inline-flex;
-  align-items: center;
   text-decoration: none;
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
-  box-sizing: border-box;
-  cursor: pointer;
   white-space: nowrap;
   padding: 11px 16px;
   letter-spacing: 0.5px;
@@ -33,15 +29,17 @@ const linkStyles = css`
   text-decoration: none;
 `
 
+const fullWidthStyles = css`
+  width: 100%;
+`
+
 const Button = ({
   className,
   variant = 'outlined',
   color = 'default',
-  href = '',
-  children = null,
-  target = '',
-  title = '',
-  type
+  href = undefined,
+  fullwidth = false,
+  ...other
 }) => {
   const Component = href ? 'a' : 'button'
 
@@ -54,15 +52,12 @@ const Button = ({
       className={cx(className, basicStyles, {
         [containedStyles]: variant === 'contained',
         [outlinedStyles]: variant === 'outlined',
-        [linkStyles]: href.length !== 0
+        [linkStyles]: href && href.length !== 0,
+        [fullWidthStyles]: fullwidth
       })}
       href={href}
-      target={target}
-      type={type}
-      title={title}
-    >
-      {children}
-    </Component>
+      {...other}
+    />
   )
 }
 

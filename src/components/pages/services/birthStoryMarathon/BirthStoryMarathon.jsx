@@ -5,7 +5,7 @@ import styled, { css, cx } from 'react-emotion'
 // components
 import Helmet from 'react-helmet'
 import { Container, Row, Col } from 'components/UI/Grid'
-import { Layout } from 'components'
+import { Layout } from 'components/Layout'
 import { InstagramCarousel } from 'components/InstagramCarousel'
 import { FeaturedSection } from 'components/FeaturedSection'
 import { Divider } from 'components/UI/Divider'

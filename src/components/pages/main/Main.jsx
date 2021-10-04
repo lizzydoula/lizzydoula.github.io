@@ -5,7 +5,7 @@ import { renderDocument } from 'utils/contentful'
 
 // components
 import { Container, Row, Col } from 'components/UI/Grid'
-import { Layout } from 'components'
+import { Layout } from 'components/Layout'
 import { PromoImage } from 'components/PromoImage'
 import { Divider } from 'components/UI/Divider'
 import { Typography } from 'components/UI/Typography'
@@ -106,7 +106,7 @@ const BrochurePromo = styled.div`
   }
 `
 
-const brochureTitle = css`
+const BrochureTitle = styled(Typography)`
   font-size: 32px;
   line-height: 40px;
 
@@ -160,9 +160,9 @@ const Brochure = ({ blockTitle, title, description, buttonTitle, pdf, bookletAss
             <Typography variant="caps" bottomMargin>
               {blockTitle}
             </Typography>
-            <Typography className={brochureTitle} variant="h1" component="h3" bottomMargin>
+            <BrochureTitle variant="h1" component="h3" bottomMargin>
               {title && renderDocument(title.json)}
-            </Typography>
+            </BrochureTitle>
             <Typography className={brochureText} variant="h5" component="div" bottomMargin>
               {description && renderDocument(description.json)}
             </Typography>

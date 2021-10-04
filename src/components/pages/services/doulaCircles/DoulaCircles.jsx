@@ -1,11 +1,14 @@
 // libs
 import React from 'react'
-import styled, { css } from 'react-emotion'
+import styled from 'react-emotion'
+import Modal from 'react-modal'
 
 // components
 import Helmet from 'react-helmet'
 import { Container, Row, Col } from 'components/UI/Grid'
-import { Layout } from 'components'
+import { Button } from 'components/UI/Button'
+import { Typography } from 'components/UI/Typography'
+import { Layout } from 'components/Layout'
 import { FeaturedSection } from 'components/FeaturedSection'
 import { Divider } from 'components/UI/Divider'
 import { InstagramCarousel } from 'components/InstagramCarousel'
@@ -17,7 +20,6 @@ import { CourseParticipationForm } from 'components/pages/services/shared/Course
 
 // constants
 import config from '../../../../../config/website'
-import { theme } from '../../../../../config/theme'
 
 // content
 import { content } from './content'
@@ -30,19 +32,13 @@ const Heading = styled.h2`
   font-size: 32px;
   font-weight: 400;
   line-height: 40px;
-  color: ${theme.brand.text.primary};
+  color: ${({ theme }) => theme.brand.text.primary};
   text-align: center;
   margin-bottom: 0;
 `
 
 const CourseSubscription = styled.div`
   text-align: center;
-`
-
-const Image = styled.img`
-  display: block;
-  margin: 0;
-  width: 100%;
 `
 
 const CourseFeatureImage = styled.img`
@@ -56,7 +52,7 @@ const CourseFeatureImage = styled.img`
 const CourseFeature = styled.div`
   margin: 32px 0;
 
-  @media (min-width: ${theme.breakpoints.xl}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
     padding-left: 64px;
     padding-right: 64px;
   }
@@ -66,23 +62,23 @@ const CourseFeatureTitle = styled.h2`
   font-size: 32px;
   font-weight: 400;
   line-height: 40px;
-  color: ${theme.brand.text.primary};
+  color: ${({ theme }) => theme.brand.text.primary};
 `
 
 const CourseFeatureDescription = styled.div`
   font-size: 14px;
   line-height: 24px;
-  color: ${theme.brand.text.primary};
+  color: ${({ theme }) => theme.brand.text.primary};
 `
 
-const cardStyles = css`
-  @media (min-width: ${theme.breakpoints.lg}) {
+const StyledDoulaCard = styled(DoulaCard)`
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     margin: 32px;
   }
 `
 
-const metaLayoutCss = css`
-  @media (min-width: ${theme.breakpoints.lg}) {
+const StyledServiceMeta = styled(ServiceMeta)`
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     padding: 0 32px;
   }
 `
@@ -93,7 +89,7 @@ const Reviews = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media (min-width: ${theme.breakpoints.lg}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     align-items: flex-start;
     flex-direction: row;
   }
@@ -103,21 +99,21 @@ const Name = styled.div`
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
-  color: ${theme.brand.text.primary};
+  color: ${({ theme }) => theme.brand.text.primary};
   margin: 32px 0 16px;
 `
 
 const Content = styled.div`
   font-size: 14px;
   line-height: 24px;
-  color: ${theme.brand.text.primary};
+  color: ${({ theme }) => theme.brand.text.primary};
 `
 
 const Avatar = styled.div`
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background-color: ${theme.colors.chablis};
+  background-color: ${({ theme }) => theme.colors.chablis};
   background-image: url('/flower.png');
   background-repeat: no-repeat;
   background-position: center center;
@@ -130,7 +126,7 @@ const CardLayout = styled.div`
     margin-bottom: 0;
   }
 
-  @media (min-width: ${theme.breakpoints.lg}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     margin: 0;
     width: 260px;
   }
@@ -143,6 +139,40 @@ const ReviewCard = ({ name, description }) => (
     <Content>{description}</Content>
   </CardLayout>
 )
+
+const ModalHeader = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  height: 48px;
+`
+
+const ModalBody = styled.div`
+  height: calc(100% - 48px);
+`
+
+const Line = styled.span`
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16px;
+  height: 2px;
+  background-color: ${props => props.theme.colors.suva_grey};
+`
+
+const TopLine = styled(Line)`
+  transform: translate(-50%, -50%) rotate(45deg);
+`
+
+const BottomLine = styled(Line)`
+  transform: translate(-50%, -50%) rotate(-45deg);
+`
+
+const CloseButton = styled.button`
+  position: relative;
+  width: 48px;
+  height: 48px;
+`
 
 const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
   const {
@@ -161,9 +191,23 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
     reviews
   } = pageContent
   const subTitle = isActive ? subtitleActive : subtitleInactive
+  const [modalIsOpen, setIsOpen] = React.useState(false)
+  const openModal = () => setIsOpen(true)
+  const closeModal = () => setIsOpen(false)
 
   return (
     <Layout mainNavigation={mainNavigation}>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Example Modal">
+        <ModalHeader>
+          <CloseButton type="button" onClick={closeModal}>
+            <TopLine />
+            <BottomLine />
+          </CloseButton>
+        </ModalHeader>
+        <ModalBody>
+          <CourseParticipationForm onDone={closeModal} />
+        </ModalBody>
+      </Modal>
       <Helmet title={`Доульский кружок | ${config.siteTitle}`} />
       <Container noPadding>
         <Row noGutters>
@@ -176,8 +220,7 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
         <Row>
           <Col xs={12}>
             <Divider />
-            <ServiceMeta
-              className={metaLayoutCss}
+            <StyledServiceMeta
               title={content.meta.title}
               description={content.meta.description}
               duration={content.meta.duration}
@@ -199,7 +242,10 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
           <Row>
             <Col xs={12}>
               <CourseSubscription>
-                <CourseParticipationForm />
+                <Typography bottomMargin>Стоимость 240 EUR</Typography>
+                <Button type="button" variant="contained" onClick={openModal}>
+                  Записаться на бесплатную встречу
+                </Button>
               </CourseSubscription>
               <Divider />
             </Col>
@@ -279,7 +325,10 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
           <Row>
             <Col xs={12}>
               <CourseSubscription>
-                <CourseParticipationForm />
+                <Typography bottomMargin>Стоимость 240 EUR</Typography>
+                <Button type="button" variant="contained" onClick={openModal}>
+                  Записаться на бесплатную встречу
+                </Button>
               </CourseSubscription>
               <Divider />
             </Col>
@@ -287,8 +336,7 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
         )}
         <Row>
           <Col xs={12} style={emptyPaddingStyles}>
-            <DoulaCard
-              className={cardStyles}
+            <StyledDoulaCard
               imageSrc={content.card.image}
               title={content.card.title}
               person={content.card.person}
@@ -302,8 +350,8 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
             <Heading>Отзывы</Heading>
             <Divider />
             <Reviews>
-              {content.reviews.map(({ name, description }) => (
-                <ReviewCard key={name} name={name} description={description} />
+              {content.reviews.map(({ name, description: reviewDescription }) => (
+                <ReviewCard key={name} name={name} description={reviewDescription} />
               ))}
             </Reviews>
             <Divider />

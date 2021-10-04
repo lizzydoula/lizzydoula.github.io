@@ -3,11 +3,17 @@ import React from 'react'
 import styled from 'react-emotion'
 
 // components
+import Modal from 'react-modal'
 import { ThemeProvider } from 'emotion-theming'
-import { PageHeader, SEO, Footer } from 'components'
+import { PageHeader } from './PageHeader'
+import { SEO } from './SEO'
+import { Footer } from './Footer'
+import { Global } from './Global'
 
 // constants
 import { theme } from '../../config/theme'
+
+Modal.setAppElement('#___gatsby')
 
 const Main = styled.main`
   padding-top: 68px;
@@ -23,14 +29,14 @@ const Page = styled.div`
 const Layout = ({ mainNavigation, children }) => (
   <Page>
     <ThemeProvider theme={theme}>
-      <>
+      <Global>
         <SEO />
         <PageHeader navigation={mainNavigation} />
         <Main>{children}</Main>
         <Footer />
-      </>
+      </Global>
     </ThemeProvider>
   </Page>
 )
 
-export default Layout
+export { Layout }

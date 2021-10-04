@@ -32,4 +32,4 @@ const Footer = () => (
   </Container>
 )
 
-export default Footer
+export { Footer }

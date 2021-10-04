@@ -14,7 +14,8 @@ const defaultVariantMapping = {
   h6: 'h6',
   body1: 'p',
   body2: 'p',
-  caps: 'p'
+  caps: 'p',
+  caption1: 'span'
 }
 
 const bottomMarginStyles = css`
@@ -30,6 +31,12 @@ const defaultVariantStyles = {
   body2: css`
     font-size: 18px;
     line-height: 24px;
+    margin-bottom: 0;
+  `,
+  caption1: css`
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
     margin-bottom: 0;
   `,
   caps: css`

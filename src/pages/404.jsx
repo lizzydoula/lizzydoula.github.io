@@ -3,7 +3,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 // components
-import { Layout } from 'components'
+import { Layout } from 'components/Layout'
 
 const NotFoundPage = ({ data }) => (
   <Layout mainNavigation={data.contentfulNavigationElement.navigationElements}>
