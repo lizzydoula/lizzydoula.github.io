@@ -15,10 +15,9 @@ import { InstagramCarousel } from 'components/InstagramCarousel'
 import { ServiceMeta } from 'components/pages/services/doulaCircles/ServiceMeta'
 import { ServiceProgram } from 'components/pages/services/doulaCircles/ServiceProgram'
 import { DoulaCard } from 'components/pages/services/doulaCircles/DoulaCard'
-
 import { CourseParticipationForm } from 'components/pages/services/shared/CourseParticipationForm'
 
-// constants
+// config
 import config from '../../../../../config/website'
 
 // content
@@ -191,13 +190,15 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
     reviews
   } = pageContent
   const subTitle = isActive ? subtitleActive : subtitleInactive
+
+  // move to separate hook
   const [modalIsOpen, setIsOpen] = React.useState(false)
   const openModal = () => setIsOpen(true)
   const closeModal = () => setIsOpen(false)
 
   return (
     <Layout mainNavigation={mainNavigation}>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Example Modal">
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <ModalHeader>
           <CloseButton type="button" onClick={closeModal}>
             <TopLine />
@@ -205,10 +206,10 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
           </CloseButton>
         </ModalHeader>
         <ModalBody>
-          <CourseParticipationForm onDone={closeModal} />
+          <CourseParticipationForm course={title} onDone={closeModal} />
         </ModalBody>
       </Modal>
-      <Helmet title={`Доульский кружок | ${config.siteTitle}`} />
+      <Helmet title={`${title} | ${config.siteTitle}`} />
       <Container noPadding>
         <Row noGutters>
           <Col xs={12}>
@@ -347,7 +348,7 @@ const DoulaCircles = ({ data: { mainNavigation, pageContent } }) => {
         </Row>
         <Row>
           <Col xs={12}>
-            <Heading>Отзывы</Heading>
+            <Heading>{reviewsBlockTitle}</Heading>
             <Divider />
             <Reviews>
               {content.reviews.map(({ name, description: reviewDescription }) => (

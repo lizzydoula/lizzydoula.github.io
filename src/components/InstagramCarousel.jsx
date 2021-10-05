@@ -138,6 +138,10 @@ const Post = ({ className, content }) => (
 )
 
 const InstagramCarousel = ({ className, title = 'Узнайте больше о моём подходе в инстаграмме:', posts }) => {
+  if (!posts || posts.length === 0) {
+    return null
+  }
+
   const [lastPost, ...otherPosts] = posts
 
   return (

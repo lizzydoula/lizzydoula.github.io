@@ -1,14 +1,14 @@
 // libs
 import React from 'react'
-import styled, { css } from 'react-emotion'
+import styled from 'react-emotion'
 
 // components
 import { Button } from 'components/UI/Button'
 import { Typography } from 'components/UI/Typography'
+import { HeartIcon } from 'components/UI/Icons/HeartIcon'
 
-const hiddenStyles = css`
-  display: none;
-`
+// hooks
+import { useForm } from './hooks/useForm'
 
 const FormLayout = styled.div`
   display: flex;
@@ -39,6 +39,10 @@ const FormLayout = styled.div`
 const FormGroup = styled.div`
   width: 100%;
   margin-bottom: 12px;
+`
+
+const HiddenFormGroup = styled(FormGroup)`
+  display: none;
 `
 
 const FormField = styled.input`
@@ -84,55 +88,6 @@ function encode(data) {
     .join('&')
 }
 
-const useForm = ({ initialValues, onSubmit }) => {
-  const submitCallback = React.useRef(onSubmit)
-  const [values, setValues] = React.useState(initialValues)
-  const [errors, setErrors] = React.useState({})
-  const [submitted, setSubmitted] = React.useState(false)
-
-  const handleChange = React.useCallback(
-    event => {
-      const { value, name } = event.target
-
-      setValues(oldValues => ({
-        ...oldValues,
-        [name]: value
-      }))
-
-      setErrors(oldValues => ({
-        ...oldValues,
-        [name]: ''
-      }))
-    },
-    [setValues]
-  )
-
-  const handleSubmit = React.useCallback(
-    event => {
-      event.preventDefault()
-
-      if (submitCallback.current) {
-        submitCallback
-          .current(values)
-          .then(() => setSubmitted(true))
-          .catch(() => {
-            // ignore errors
-          })
-      }
-    },
-    [values]
-  )
-
-  return {
-    values,
-    handleChange,
-    errors,
-    setErrors,
-    handleSubmit,
-    isSubmitted: submitted
-  }
-}
-
 const CourseParticipationForm = ({ course = 'Доульский кружок', onDone }) => {
   const formApi = useForm({
     initialValues: {
@@ -169,12 +124,7 @@ const CourseParticipationForm = ({ course = 'Доульский кружок', o
   if (formApi.isSubmitted) {
     return (
       <FormLayout>
-        <svg width="113" height="122" viewBox="0 0 113 122" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M5.14425 11.5534C-16.0781 40.0558 33.4707 97.0605 60.8978 122C80 104.5 131.5 51.5 105.861 11.5534C96.0816 -3.68221 64.9445 17.4914 60.8978 32.9302C51.1559 13.9286 26.3666 -16.9489 5.14425 11.5534Z"
-            fill="#AC8E89"
-          />
-        </svg>
+        <HeartIcon />
         <Congratulation>Спасибо! Я обязательно свяжусь с Вами в ближайшее время.</Congratulation>
         <SubmitButton variant="contained" fullwidth onClick={onDone}>
           Закрыть
@@ -184,14 +134,7 @@ const CourseParticipationForm = ({ course = 'Доульский кружок', o
   }
 
   return (
-    <FormLayout
-      name="participation"
-      method="post"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={formApi.handleSubmit}
-      noValidate
-    >
+    <FormLayout>
       <form
         name="participation"
         method="post"
@@ -202,11 +145,11 @@ const CourseParticipationForm = ({ course = 'Доульский кружок', o
       >
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
         <input type="hidden" name="form-name" value="participation" />
-        <div className={hiddenStyles}>
+        <HiddenFormGroup>
           <label htmlFor="bot-field">
             Don’t fill this out: <input id="bot-field" name="bot-field" onChange={formApi.handleChange} />
           </label>
-        </div>
+        </HiddenFormGroup>
         <FormGroup>
           <label htmlFor="name">
             <FormField

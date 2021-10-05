@@ -117,8 +117,6 @@ const CourseDescription = ({ className, content }) => {
 
   const descriptionFeatures = getDescriptionFeatures(remainingContent)
 
-  console.log(descriptionFeatures)
-
   return (
     <Section className={className}>
       {renderDocument(title, renderDocumentOptions)}
