@@ -1,6 +1,6 @@
 // libs
 import React from 'react'
-import styled, { cx, css } from 'react-emotion'
+import styled from 'react-emotion'
 
 // components
 import { Typography } from 'components/UI/Typography'
@@ -37,10 +37,10 @@ const Title = styled(Typography)`
   color: ${theme.colors.white};
   text-align: center;
   margin: 16px 0;
-  padding: 0 32px;
+  padding: 0 16px;
   @media (max-width: ${theme.breakpoints.lg}) {
-    font-size: 48px;
-    line-height: 56px;
+    font-size: 40px;
+    line-height: 44px;
   }
 `
 
