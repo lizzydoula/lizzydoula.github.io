@@ -69,6 +69,7 @@ const ErrorMessage = styled(Typography)`
   min-height: 16px;
   visibility: ${({ error }) => (error ? 'visible' : 'hidden')};
   color: ${({ theme }) => theme.colors.error};
+  padding: 0 16px;
 `
 
 const Congratulation = styled.div`
